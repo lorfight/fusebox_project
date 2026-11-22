@@ -1,0 +1,108 @@
+{
+  "device_name": "UAT",
+  "browser": {
+    "type": "Chrome",
+    "size": "1440,900",
+    "headless": true
+  },
+  "sender": {
+    "username": "qc@mainbridgehp.com",
+    "password": "odmyolstighqdwde"
+  },
+  "recipient": [
+    "tu.nguyen@mainbridgehp.com",
+    "cuong.pham@mainbridgehp.com",
+    "vu.nguyen@mainbridgehp.com",
+    "hai.nguyen@mainbridgehp.com",
+    "tri.trinh@mainbridgehp.com",
+    "do.luong@mainbridgehp.com",
+    "huy.nguyen@mainbridgehp.com",
+    "huyenth.tran@mainbridgehp.com",
+    "nga.phan@mainbridgehp.com",
+    "quoc.nguyen@mainbridgehp.com",
+    "hieu.huynh@mainbridgehp.com",
+    "khanh.nguyen@mainbridgehp.com",
+    "baol.nguyen@mainbridgehp.com",
+    "hung.ho@mainbridgehp.com"
+  ],
+  "fusebox": {
+    "url": "http://fusebox-uat.azurewebsites.net/",
+    "users": [
+      {
+        "username": "qa.qc.accounting.automation",
+        "password": "QAMbAccountingAuto!!!@@26",
+        "role": "Accounting",
+        "account":"QCA1 (113464)"
+      },
+      {
+        "username": "qa.qc.admin.automation",
+        "password": "QAMbAdminAuto!!!@@26",
+        "role": "Admin",
+        "account":"QCA1 (113464)"
+      },
+      {
+        "username": "qa.qc.manager.automation",
+        "password": "QAMbManagerAuto!!!@@26",
+        "role": "Manager",
+        "account":"QCA1 (113464)"
+      },
+      {
+        "username": "qa.clinic.automation3",
+        "password": "QAMbClinicAuto!!!@@26",
+        "role": "ClinicSmokePas",
+        "MFA": false,
+        "account":"QCA1 (113464)"
+      },
+      {
+        "username": "qa.clinic.automation3",
+        "password": "QAMbClinicAuto!!!@@26",
+        "role": "ClinicSmokeLogImp",
+        "MFA": false,
+        "account":"QCA1 (113464)"
+      },
+      {
+        "username": "qa.prime.automation",
+        "password": "QAMbPrimeAuto!!!@@26",
+        "role": "PrimeSmokeAssoPay",
+        "MFA": false,
+        "account":"FUSEBOX (100006)"
+      },
+      {
+        "username": "qa.qc.admin.automation.qca2",
+        "password": "QAMbAdminAuto!!!@@26",
+        "role": "Admin_QCA2",
+        "account":"QCA2 (114270)"
+      },
+      {
+        "username": "qc.smoke.admin",
+        "password": "1qazZAQ!",
+        "role": "Prime",
+        "account":"FUSEBOX (100006)"
+      },
+      {
+        "username": "qc.auto.admin",
+        "password": "Nga@12345",
+        "role": "PrimeSmoke_ADM",
+        "account":"FUSEBOX (100006)"
+      },
+      {
+        "username": "clinic.automation.uat",
+        "password": "1qazZAQ!!!",
+        "role": "Clinic",
+        "account":"QCA1 (113464)"
+      },
+      {
+        "username": "physician.uat",
+        "password": "1qazZAQ!",
+        "role": "Prime_physician",
+        "account":"FUSEBOX (100006)"
+      },
+      {
+        "username": "qc.prime.impersonate.uat",
+        "password": "1qazZAQ!",
+        "role": "Impersonate",
+        "account":"FUSEBOX (100006)"
+      }
+    ]
+  }
+}

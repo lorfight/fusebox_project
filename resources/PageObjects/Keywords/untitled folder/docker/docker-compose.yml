@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  fusebox-automation-testing-runner:
+    build: .
+    container_name: "fusebox-automation-testing-runner-${ENVIRONMENT}"
+    environment:
+      - ENVIRONMENT=dev
+      - ENV ENVIRONMENT="dev"
+      - ENV TEST_IDS="*"
+      - ENV MAX_EXECUTION_TIME=120
+      - ENV AZURE_TAG_NAME="latest"
+      - ENV BUILD_URL=""
+      - ENV TESTING_TYPE=""
+      - ENV TESTING_ROLE=""
+      - ENV TEST_EXECUTION_TYPE=""
+      - ENV AZ_DEVOPS_CONNECTOR_URL=""
+      - ENV AZ_DEVOPS_CONNECTOR_TOKEN=""
+    volumes:
+      - ./configs:/app/configs
+      - ./results:/app/results

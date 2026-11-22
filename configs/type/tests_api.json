@@ -1,0 +1,9 @@
+{
+  "API_PA": "api/core/APIPatient.robot",
+  "API_APT": "api/core/APIAppointment.robot",
+  "API_DIS": "api/core/APIDispense.robot",
+  "API_MED": "api/core/APIMedication.robot",
+  "API_BILL": "api/core/APIBilling.robot",
+  "API_FULL": "api/core/APIFullIntegration.robot"
+}
+  

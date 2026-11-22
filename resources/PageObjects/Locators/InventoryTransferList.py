@@ -1,0 +1,1 @@
+NewInventoryTransfer_button="//*[contains(text(),'New Inventory Transfer')]"

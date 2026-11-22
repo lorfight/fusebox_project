@@ -1,0 +1,471 @@
+{
+        "Prime": {
+        "VerifyAPOrderInvoiceLedge": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Order Invoice Reconcile": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyAPReconcileInvoices": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Order Invoice Reconcile": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyBackorderedOrders": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify View Order": [
+                {"url": "/"}
+            ],
+
+            "Verify View Confirmation": [
+                {"url": "/"}
+            ],
+
+            "Verify View Invoice": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyNewOrder": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Submit Requisition Order": [
+                {"url": "/"}
+            ],
+
+            "Submit Order": [
+                {"url": "/"}
+            ],
+
+            "Verify Favorite Tab": [
+                {"url": "/"}
+            ],
+
+            "Verify History Tab": [
+                {"url": "/"}
+            ],
+
+            "Complete Later": [
+                {"url": "/"}
+            ],
+
+            "Verify Updated Cart Count": [
+                {"url": "/"}
+            ],
+
+            "Delete Draft": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyOpenOrder": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify View Order": [
+                {"url": "/"}
+            ],
+
+            "Verify View Confirmation": [
+                {"url": "/"}
+            ],
+
+            "Verify View Invoice": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyOrderConfirmationMode": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify View Order": [
+                {"url": "/"}
+            ],
+
+            "Verify View Confirmation": [
+                {"url": "/"}
+            ],
+
+            "Verify View Invoice": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyOrderHistory": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify View Order": [
+                {"url": "/"}
+            ],
+
+            "Verify View Confirmation": [
+                {"url": "/"}
+            ],
+
+            "Verify View Invoice": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyOrderRequisitions": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Viewing Account Filter": [
+                {"url": "/"}
+            ],
+
+            "Verify New Order": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyOrdersUnderDispute": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify View Order": [
+                {"url": "/"}
+            ],
+
+            "Verify View Confirmation": [
+                {"url": "/"}
+            ],
+
+            "Verify View Invoice": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyPayerContractsTracker": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Allowable Validations in Payer Contracts Tracker": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyReports": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Create New Report": [
+                {"url": "/"}
+            ],
+
+            "Verify Scheduled Report Settings": [
+                {"url": "/"}
+            ],
+
+            "Verify Comprehensive Excel Reports": [
+                {"url": "/"}
+            ],
+
+            "Verify Report Queue": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyPendingOrder": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Viewing Account Filter": [
+                {"url": "/"}
+            ],
+
+            "Verify New Order": [
+                {"url": "/"}
+            ],
+
+            "Verify Build Name": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifySalesOrder": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify View Order": [
+                {"url": "/"}
+            ],
+
+            "Verify View Confirmation": [
+                {"url": "/"}
+            ],
+
+            "Verify View Invoice": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerityOrderDiscrepancyAudit": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Order Discrepancy Audit": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyFeeTracker": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Fee Payment Detail": [
+                {"url": "/"}
+            ],
+
+            "Verify Fee Detail": [
+                {"url": "/"}
+            ],
+
+            "Verify Assign Fee Actual Amount": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyReceiveExistingOrder": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify View Order": [
+                {"url": "/"}
+            ],
+
+            "Verify View Confirmation": [
+                {"url": "/"}
+            ],
+
+            "Verify View Invoice": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyReceivingHistory": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify View Order": [
+                {"url": "/"}
+            ],
+
+            "Verify View Confirmation": [
+                {"url": "/"}
+            ],
+
+            "Verify View Invoice": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyMyAccount": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Edit Technical Setting": [
+                {"url": "/"}
+            ],
+
+            "Verify View Users": [
+                {"url": "/"}
+            ],
+
+            "Verify View Account": [
+                {"url": "/"}
+            ],
+
+            "Verify View Users in Account": [
+                {"url": "/"}
+            ],
+
+            "Verify View Contact in Account": [
+                {"url": "/"}
+            ],
+
+            "Verify View Physicians in Account": [
+                {"url": "/"}
+            ],
+
+            "Verify View Users In New Account": [
+                {"url": "/"}
+            ],
+
+            "Verify View Physicians New Account": [
+                {"url": "/"}
+            ],
+
+            "Verify Import Account": [
+                {"url": "/"}
+            ],
+
+            "Verify View Changes in Account": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyDevicesSmoke": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Assign A New Device To Patient": [
+                {"url": "/"}
+            ],
+
+            "Assign A New Device": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyInventoryItemsSmoke": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Create Inventory Item": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyVendorItemNumbers": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Add Vendor Item Number Blacklist": [
+                {"url": "/"}
+            ],
+
+            "Verify Import Vendor Item Number": [
+                {"url": "/"}
+            ],
+
+            "Verify Change Vendor Item Number": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyCategorizedItemSmoke": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Category Item Feature": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyTrackOrders": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Create Track Order To View Shipment Event": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        }
+    }
+}

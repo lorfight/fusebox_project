@@ -1,0 +1,301 @@
+{
+    "Clinic": {
+        "AppointmentSchedulingQueue": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User",
+                "Patient.Create Patient"
+            ],
+
+            "Schedule New Appointment In Appointment Scheduling Queue": [
+                "Provider Orders.Open Provider Orders Tab",
+                "Provider Orders.Create Provider Order",
+                "Prior Authorizations.Open Prior Authorizations Tab",
+                "Prior Authorizations.Click Edit Prior Authorizations",
+                "Prior Authorizations.Click Update Prior Authorizations",
+                "Appointment.Schedule Appointment Without Office Visit"
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "AppointmentOrderingLedger": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User",
+                "Patient.Create Patient"
+            ],
+
+            "Dispense Window Opens Successfully": [
+                "Dispensing.Go To Dispense Now"
+            ],
+
+            "Verify New Apointment Is Scheduled Successfully": [
+                "Appointment.Go To Schedule New Appointment",
+                "Appointment.Schedule Appointment Without Office Visit",
+                "Appointment.Open Appointment",
+                "Appointment.Rechedule Appointment",
+                "Appointment.Cancel Appointment"
+            ],
+            
+            "Dispense Apointment Successfully": [
+                "Appointment.Go To Schedule New Appointment",
+                "Appointment.Schedule Appointment Without Office Visit",
+                "Appointment.Open Appointment",
+                "Appointment.Dispense Appointment"
+            ],
+            
+            "View Therapy Management Modal": [
+                "Appointment.Go To Therapy Management Modal"
+            ],
+            
+            "View Protocol Management Modal": [
+                "Appointment.Go To Protocol Management Modal"
+            ],
+            
+            "CRUD Regimen Management Modal": [
+                "Appointment.Go To Regimen Management Modal",
+                "Appointment.Create Regimen",
+                "Appointment.Update Regimen",
+                "Appointment.Delete Regimen"
+            ],
+            
+            "CRUD Template In Encounter Note Visibility Settings Modal": [
+                "Appointment.Go To Encounter Note Visibility Settings Modal",
+                "Appointment.Create Template In Encounter Note Visibility Settings",
+                "Appointment.Update Template In Encounter Note Visibility Settings",
+                "Appointment.Delete Template In Encounter Note Visibility Settings"
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "AppointmentPriorAuthStatus": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Report Viewer Is Displayed Correctly In Condensed Appointment Prior Authorizations": [
+                {"url": "/Report -- CondensedAppointmentPatientPriorAuthStatus"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "BillableEvents": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User",
+                "Patient.Create Patient",
+                "Appointment.Go To Schedule New Appointment",
+                "Appointment.Schedule Appointment Without Office Visit"
+            ],
+
+            "View Billable Event List Successfully": [
+                "Billable Events.Filter Billable Event",
+                "Appointment.Open Appointment",
+                "Appointment.Dispense Appointment",
+                "Document.Open Document",
+                "Billable Events.Click Unlock Button",
+                "Billable Events.Click Add Line Button",
+                "Billable Events.Add Cpt Code",
+                "Billable Events.Click Lock Button",
+                "Billable Events.Verify Change History Loads Correctly"
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "DispenseInventoryAndBillingStatus": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Report Viewer Is Displayed Correctly In Daily Dispense, Inventory, and Billing Status": [
+
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "HistoricalAppointmentLedger": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User",
+                "Patient.Create Patient"
+            ],
+
+            "Dispense Window Opens Successfully": [
+                "Dispensing.Go To Dispense Now"
+            ],
+
+            "Verify Appoinment Is Dispensed Successfully": [
+                "Appointment.Go To Schedule New Appointment",
+                "Appointment.Schedule Appointment Without Office Visit",
+                "Appointment.Open Appointment",
+                "Appointment.Dispense Appointment"
+            ],
+
+            "View Therapy Management Modal": [
+                "Appointment.Go To Therapy Management Modal"
+            ],
+
+            "View Protocol Management Modal": [
+                "Appointment.Go To Protocol Management Modal"
+            ],
+
+            "CRUD Regimen Management Modal": [
+                "Appointment.Go To Regimen Management Modal",
+                "Appointment.Create Regimen",
+                "Appointment.Update Regimen",
+                "Appointment.Delete Regimen"
+            ],
+
+            "CRUD Template In Encounter Note Visibility Settings Modal": [
+                "Appointment.Go To Encounter Note Visibility Settings Modal",
+                "Appointment.Create Template In Encounter Note Visibility Settings",
+                "Appointment.Update Template In Encounter Note Visibility Settings",
+                "Appointment.Delete Template In Encounter Note Visibility Settings"
+            ],
+
+            "System Exits History Mode And Returns To Appoinment Ordering Ledger Page Successfully": [
+                
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "InsuranceVerifications": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User",
+                "Insurance Verification.Go To Insurance Verification Ledger Page"
+            ],
+
+            "View And Update Insurance Verifications Successfully": [
+
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "LabTracker": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User",
+                "Patient.Create Patient"
+            ],
+            
+            "Lab Tracker Creation Process": [
+                "Appointment.Go To Protocol Management Modal",
+                "Appointment.Select Lab Descirption In Protocol Management Modal",
+                "Lab Tracker.Open Add Lab Tracker Modal",
+                "Lab Tracker.Upsert Lab Tracker With All Fields",
+                "Lab Tracker.Create Attribute With All Fields",
+                "Lab Tracker.Show Empty Value In Lab Tracker Row",
+                "Lab Tracker.Create Attribute With All Fields",
+                "Lab Tracker.Delete Attributes",
+                "Document.Open Document"
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "PatientAlerts": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User",
+                "Patient.Create Patient",
+                "Patient Alerts.Go To Patient Alerts Page"
+            ],
+            
+            "Create Patient Alerts Successfully": [
+                "Patient Alerts.Create New Patient Alert"
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "PriorAuthorizations": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User",
+                "Patient.Create Patient",
+                "Provider Orders.Create Provider Order"
+            ],
+            
+            "Handle Prior Authorization After Creating Provider Order": [
+                "Prior Authorizations.Click Edit Prior Authorizations",
+                "Prior Authorizations.Click Update Prior Authorizations",
+                "Document.Open Document",
+                "Provider Orders.Open Insurance",
+                "Provider Orders.Open Provider Orders Popup"
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "Referrals": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User",
+                "Patient.Create Patient"
+            ],
+            
+            "CRUD And Confirm Referral Is Visible In Referrals List": [
+                "Referrals.Create A Referral",
+                "Referrals.Open Referral",
+                "Referrals.Edit A Referral",
+                "Document.Open Document"
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "ViewDispenseHistory": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Report Viewer Is Displayed Correctly In Patient Dispense Log": [
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "ViewPatientHistory": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Report Viewer Is Displayed Correctly In Patient History Log": [
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "Patient": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "CRUD And Inactive Patient": [
+                "Patient.Delete Patient",
+                "Patient.Create Patient"
+            ],
+
+            "Import Patient File And Merge Patient": [
+                "Patient.Import Patient",
+                "Patient.Merge Patient"
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        }
+    }
+}

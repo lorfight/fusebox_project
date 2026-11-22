@@ -1,0 +1,350 @@
+trigger:
+  branches:
+    include:
+      - 'ci'
+      # - 'main'
+  tags:
+    include:
+      - '*'
+
+name: $(Build.SourceBranchName)_$(Date:yyyyMMdd)$(Rev:r)
+
+variables:
+  configFileName: ''
+
+stages:
+- stage: Build
+  displayName: 'Build'
+  jobs:
+  - job: Build
+    displayName: 'Build'
+    pool:
+      name: 'Self Host Pool 1'
+    steps:
+    - checkout: self
+      persistCredentials: true
+      fetchTags: true
+      fetchDepth: 0
+
+    - task: PowerShell@2
+      displayName: initialVariables
+      inputs:
+        targetType: 'inline'
+        script: |
+          $tagNameValue = "$(Build.SourceBranchName)"
+          Write-Host "SourceBranchName: $tagNameValue"
+
+          $regex = "^(STAGING|PROD)_(AT)_[A-Za-z0-9.-]+_(\d+(\.\d+)?\.\d+)$"
+
+          Write-Host "Build Reason: '$(Build.Reason)'"
+
+          $triggerType = ""
+          if ("$(Build.SourceBranch)" -like "refs/tags/*") {
+            Write-Host "Triggered by tag"
+            $triggerType = "TAG"
+            Write-Host "##vso[task.setvariable variable=triggerType;]TAG"
+          } else {
+
+            $triggerType = "CI"
+            Write-Host "Triggered manually or by individual CI"
+            Write-Host "##vso[task.setvariable variable=triggerType;]CI"
+
+            Write-Host "##vso[task.setvariable variable=buildEnv;]DEV"
+
+            $commitHash = "$(Build.SourceVersion)"
+            Write-Host "##vso[task.setvariable variable=tagName;]$commitHash"
+
+            Write-Host "##vso[task.setvariable variable=buildType;]W"
+          }
+
+          Write-Host "Trigger Type: $triggerType"
+
+          if ("$triggerType" -eq "TAG") {
+            if ($tagNameValue -match $regex) {
+
+              Write-Host "Tag name '$tagNameValue' is valid."
+              Write-Host "##vso[task.setvariable variable=tagName;]$tagNameValue"
+
+              $envValue = ($tagNameValue -split '_')[0]
+              Write-Host "Build Env: '$envValue'"
+              Write-Host "##vso[task.setvariable variable=buildEnv;]$envValue"
+
+              $buildTypeValue = ($tagNameValue -split '_')[1]
+              Write-Host "Build Type: '$buildTypeValue'"
+              Write-Host "##vso[task.setvariable variable=buildType;]$buildTypeValue"
+
+              $moduleNameValue = ($tagNameValue -split '_')[2]
+              Write-Host "Module: '$moduleNameValue'"
+              Write-Host "##vso[task.setvariable variable=moduleName;]$moduleNameValue"
+            }
+            else {
+              Write-Host "Invalid tag name: $tagNameValue"
+              exit 1
+            }
+          }
+          else {
+            Write-Host "Trigger by commits"
+          }
+
+    - task: PowerShell@2
+      displayName: 'Get Changelogs'
+      inputs:
+        targetType: 'inline'
+        script: |
+          Write-Host "Tag Name: '$(tagName)'"
+          Write-Host "Build Env: '$(buildEnv)'"
+
+          $azureDevOpsOrg = "fabricius-software"
+          $azureDevOpsProject = "Fabricius%20Portal"
+          $azureDevOpsRepo  = "Fabricius%20Portal"
+          $wikiProject = "Fusebox%20Wiki"
+          $wikiIdentifier = "Fusebox-Wiki.wiki"
+          $parentPagePath  = "/Fusebox%20Release%20Notes"
+
+          $currentTag = "$(tagName)"
+
+          git fetch --tags --force
+
+          $tagNameWithoutVersion = $currentTag -replace "(_\d+\.\d+\.\d+)$"
+
+          # Get all tags and filter them based on rules
+          $allTags = git tag -l | Where-Object {
+              $_ -match "^$($tagNameWithoutVersion)(_?\d*\.\d*\.\d*)?$"
+          }
+
+          $previousTag = $allTags | Sort-Object { [Version](($_ -split "_")[-1]) } -Descending | Select-Object -Index 1
+          Write-Host "Previous Tag: $previousTag"
+
+          $changes = git log "$previousTag..$currentTag" --pretty=format:"  - %s by <b>%an</b> created at <b>%cd</b></br>" --date=format:%Y-%m-%d 2>&1 | ForEach-Object ToString
+          $changes = $changes -replace '"', '`"`"'
+          Write-Host "Changes between $previousTag and $currentTag : $changes"
+
+          $commitInfos = git log "$previousTag..$currentTag" --pretty=format:"%H|%s|%an|%ad" --date=format:%Y-%m-%d | Out-String
+          $commitInfos = $commitInfos -replace '"', '\"'
+          $releaseNotesFile = "$currentTag.md"
+          $releaseNotesContent = "## Release Notes for $currentTag`n`n"
+          $releaseNotesContent += "| Commit | Message | Author | Date |`n"
+          $releaseNotesContent += "| --- | --- | --- | --- |`n"
+          $commitBaseUrl = "https://dev.azure.com/$azureDevOpsOrg/$azureDevOpsProject/_git/$azureDevOpsRepo/commit/"
+
+          $commitInfos -split "`n" | ForEach-Object {
+              if ($_ -ne "") {
+                  $commitDetails = $_ -split '\|'
+                  $sha = $commitDetails[0]
+                  $message = $commitDetails[1]
+                  $author = $commitDetails[2]
+                  $date = $commitDetails[3]
+
+                  # Skip the commit if the message starts with "Merged PR"
+                  if ($message.StartsWith("Merged PR")) {
+                      return
+                  }
+
+                  if ($sha.Length -ge 8) {
+                      $shortSha = $sha.Substring(0, 8)
+                  }
+                  else {
+                      $shortSha = $sha
+                  }
+
+                  if ($sha -ne "") {
+                      $commitUrl = $commitBaseUrl + $sha
+                      $releaseNotesContent += "| [$shortSha]($commitUrl) | $message | $author | $date |`n"
+                  }
+              }
+          }
+
+          if (Test-Path $releaseNotesFile) {
+              Remove-Item $releaseNotesFile
+          }
+
+          $releaseNotesContent | Out-File $releaseNotesFile -Encoding utf8
+
+          # Push the release notes file to the wiki
+          $pat = "$(azure-devops-pat)"
+          $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$($pat)"))
+          $subPageTitle = $currentTag
+          $subPagePath = "$parentPagePath/$subPageTitle"
+
+          $uri = "https://dev.azure.com/$azureDevOpsOrg/$wikiProject/_apis/wiki/wikis/$wikiIdentifier/pages?path=$subPagePath&api-version=7.1"
+
+          Write-Host "URI: $uri"
+          Write-Host "Release Notes: $releaseNotesContent"
+
+          $body = @{
+            content = $releaseNotesContent
+          } | ConvertTo-Json
+          
+          # check page exists, if not exist, the request will throw exception, catch it and create the page
+          try {
+            $responseData = Invoke-RestMethod -Uri $uri -Method Get -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -ContentType "application/json"
+            
+            # Delete the page if it exists
+            $deleteUri = "https://dev.azure.com/$azureDevOpsOrg/$wikiProject/_apis/wiki/wikis/$wikiIdentifier/pages?path=$subPagePath&api-version=7.1"
+            $deleteResponse = Invoke-RestMethod -Uri $deleteUri -Method Delete -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -ContentType "application/json"
+            Write-Host "Page deleted: $subPagePath"
+          
+          } catch {
+              Write-Host $_.Exception.Message
+              Write-Host "Page not found, creating new page"
+          }
+          
+          # Invoke the REST API to update the wiki page and get response in json format
+          $responseData = Invoke-RestMethod -Uri $uri -Method Put -Body $body -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -ContentType "application/json"
+
+          $wikiPageUrl = $responseData.remoteUrl
+          $changes = "<a href=`"`"$wikiPageUrl`"`">Release Notes</a>"
+          Write-Host "##vso[task.setvariable variable=changesBetweenTags;]$changes"
+
+    - task: PowerShell@2
+      displayName: 'Trigger Jenkins Job'
+      condition: ne(variables.buildEnv, 'DEV')
+      inputs:
+        targetType: 'inline'
+        script: |
+          $buildEnv = "$(buildEnv)"
+          
+          if ($buildEnv -eq "PROD") {
+              $jenkinsUrl = "$(jenkins-prod-url)"
+              $jenkinsUser = "$(jenkins-prod-username)"
+              $jenkinsApiToken = "$(jenkins-prod-api-token)"
+          } else {
+              $jenkinsUrl = "$(jenkins-staging-url)"
+              $jenkinsUser = "$(jenkins-staging-username)"
+              $jenkinsApiToken = "$(jenkins-staging-api-token)"
+          }
+  
+          $runId = $env:BUILD_BUILDID
+          $tagName = "$(Build.SourceBranchName)"
+  
+          Write-Host "Azure Pipeline Run ID: $runId"
+          Write-Host "Azure Pipeline TagName: $tagName"
+          Write-Host "Azure Pipeline Build Env: $buildEnv"
+          Write-Host "Jenkins URL: $jenkinsUrl"
+
+          # Create a PSCredential object with the username and password
+          # Create a base64-encoded token for authentication
+          $pair = "$($jenkinsUser):$($jenkinsApiToken)"
+          $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes($pair))
+          
+          # Set the headers for the API call
+          $headers = @{
+              Authorization = "Basic $base64AuthInfo"
+          }
+          
+          Write-Host $base64AuthInfo
+          
+          # Obtain CSRF crumb
+          $crumbUrl = "$jenkinsUrl/crumbIssuer/api/xml"
+          Write-Host $crumbUrl 
+          
+          # Disable certificate validation check
+          Add-Type -TypeDefinition @"
+              using System.Net;
+              using System.Security.Cryptography.X509Certificates;
+              public class SSLValidator {
+                  public static void Ignore() {
+                      ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+                  }
+              }
+          "@
+          [SSLValidator]::Ignore()
+          
+          $crumbResponse = Invoke-RestMethod -Uri $crumbUrl -Headers $headers -Method Get
+          Write-Host $crumbResponse
+          
+          $responseXml = [xml]$crumbResponse
+          $xmlString = $responseXml.OuterXml
+          Write-Host $xmlString
+          
+          # Select the crumb node and retrieve the value
+          $crumb = $crumbResponse | Select-Xml -XPath "//crumb" | Select-Object -ExpandProperty Node | Select-Object -ExpandProperty "#text"
+          
+          # Print the crumb value
+          Write-Host "Jenkins crumb value: $crumb"
+          
+          
+          $BuildHeaders = @{
+              "Jenkins-Crumb" = $crumb
+              Authorization = "Basic $base64AuthInfo"
+          }
+          
+          # lowercase for environment
+          $buildEnv = $buildEnv.ToLower()
+          
+          $params = @{ 
+            AZURE_RUN_ID = "${runId}";
+            AZURE_TAG_NAME = "${tagName}";
+            STORAGE_ACCOUNT_NAME = "fuseboxdev";
+            CONTAINER_NAME = "automation-testing";
+            ENVIRONMENT = "${buildEnv}";
+            REQUIREMENTS_CHANGED = "false";
+            TEST_IDS = "*";
+          }
+          
+          # Trigger the job build
+          try {
+            
+            $jobName = "FUSEBOX_AUTOMATION_TESTING"
+          
+            if($buildEnv -eq "prod") {
+              $jobName = "PROD_FUSEBOX_AUTOMATION_TESTING"
+            }
+          
+            if($buildEnv -eq "staging") {
+              $jobName = "STAGING_FUSEBOX_AUTOMATION_TESTING"
+            }
+          
+            $buildUrl = "$jenkinsUrl/job/$jobName/buildWithParameters"
+            $triggerJobResponse = Invoke-RestMethod -Uri $buildUrl -Headers $BuildHeaders -Method Post -Body $params -ContentType "application/x-www-form-urlencoded" -UseBasicParsing -Verbose -Debug
+            
+            Write-Host $triggerJobResponse
+          } catch {
+            Write-Host $_.Exception.Message
+          }
+
+    - task: DownloadSecureFile@1
+      name: skypeScriptFile
+      displayName: 'Download Skype Script'
+      inputs:
+        secureFile: 'skype.py'
+        retryCount: 3
+
+    - task: PowerShell@2
+      displayName: 'Send Skype Notify'
+      condition: ne(variables.buildEnv, 'DEV')
+      inputs:
+        targetType: 'inline'
+        script: |
+          try {
+            $skypeUser= "$(skype-username)"
+            $skypePassword= "$(skype-password)"
+            $skypeGroup = "$(skype-group-cicd)"
+            $skypeScriptPath = "$(skypeScriptFile.secureFilePath)"
+
+            $buildId= $env:BUILD_BUILDID
+
+            $buildDefinitionName = $env:BUILD_DEFINITIONNAME
+            $buildNumber= $env:BUILD_BUILDNUMBER
+            $buildSourceBranchName= $env:BUILD_SOURCEBRANCHNAME
+            $buildSourceVersion= $env:BUILD_SOURCEVERSION
+            $buildQueuedById= $env:BUILD_QUEUEDBY
+            $buildStatus = $env:AGENT_JOBSTATUS
+            $buildSourceVersionMessage = $env:BUILD_SOURCEVERSIONMESSAGE
+
+            $buildLink = "`"https://dev.azure.com/fabricius-software/_git/Mirth%20Fusebox%20Integration/_build/results?buildId=$buildId&view=results`""
+
+            Write-Host "Changes: '$(changesBetweenTags)'"
+            $changeLogs = "$(changesBetweenTags)"
+
+            if ([string]::IsNullOrEmpty($changeLogs)) {
+                $changeLogs = "N/A"
+            }
+
+            $message = "&#9889; Pipeline <b>$buildDefinitionName</b>, triggered by <b>$buildQueuedById</b>, has <b>$buildStatus.</b></br> • Build Number: $buildNumber</br> • Source Branch: $buildSourceBranchName</br> • Version: $buildSourceVersion.</br> • Details: <a href=`"$buildLink`">Here</a></br> • Message: $buildSourceVersionMessage</br> • Changes:</br> $changeLogs"
+
+            $messageEscaped = $message -replace '"', '\"'
+
+            python $skypeScriptPath $skypeUser $skypePassword $skypeGroup $messageEscaped
+          } catch { "An error occurred." }
+

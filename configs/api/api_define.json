@@ -1,0 +1,425 @@
+{
+    "Impersonate": {
+        "Impersonate User": [
+            {"url": "/User/ImpersonateUser"}
+        ]
+
+    },
+    "Patient": {
+        "Create Patient": [
+            {"url":"/Patient/PatientList"},
+            {"url":"/Patient/Create"},
+            {"url":"/Patient/ValidatePatientInformation"},
+            {"url":"/Patient/ReferralProviderAutocomplete"},
+            {"url":"/Patient/Create"}
+        ],
+        "Merge Patient": [
+            {"url":"/Patient/PatientMergeModal"},
+            {"url":"/Patient/ProcessPatientMerge"}
+        ],
+        "Delete Patient": [
+            {"url":"/Patient/Edit"},
+            {"url":"/Patient/CanDeletePatient"},
+            {"url":"/Patient/Delete"}
+        ],
+        "Import Patient": [
+            {"url":"/Patient/ImportPatients"},
+            {"url":"/Patient/DownloadImportTemplate"},
+            {"url":"/Patient/UploadPatientsExcel"},
+            {"url":"/Patient/ImportPatients"},
+            {"url":"/Patient/ProcessImportPatients"}
+        ]
+    },
+
+    "Dispensing": {
+        "Go To Appointment Ordering Ledger Via New Dispense Link": [
+            {"url": "/Account/getNetworkAssignedAccounts"}
+        ],
+        "Go To Dispense Now": [
+            {"url": "/Appointment/QuickDispenseModal"},
+            {"url": "/Appointment/DispenseInnerView"},
+            {"url": "/Appointment/DispenseSecondaryMedicationInnerView"},
+            {"url": "/Appointment/MedicalSuppliesInnerView"}
+        ]
+    },
+   
+    "Appointment": {
+        "Go To Schedule New Appointment": [
+            {"url": "/Appointment/ScheduleAppointmentModal"}
+        ],
+        "Schedule Appointment Without Office Visit": [
+            {"url": "/Appointment/ScheduleAppointmentInnerView"},
+            {"url": "/Appointment/ScheduleTherapyDosageSelector"},
+            {"url": "/Appointment/GetFutureAppointmentList"},
+            {"url": "/Appointment/CreateScheduledBulkAppointments"}
+        ],
+        "Open Appointment": [
+            {"url": "/Appointment/LoadPatientAppointmentModal"},
+            {"url": "/Appointment/AssignDosageModal"}
+        ],
+        "Rechedule Appointment": [
+            {"url": "/Appointment/CancelRescheduleAppointmentModal"},
+            {"url": "/Appointment/CancelRescheduleAppointmentAction"},
+            {"url": "/Appointment/LoadPatientAppointmentModal"}
+        ],
+        "Cancel Appointment": [
+            {"url": "/Appointment/CancelRescheduleAppointmentModal"},
+            {"url": "/Appointment/CancelRescheduleAppointmentAction"},
+            {"url": "/Appointment/LoadPatientAppointmentModal"}
+        ],
+        "Dispense Appointment": [
+            {"url": "/Appointment/ConfirmDispenseDosage"},
+            {"url": "/Appointment/ConfirmAssignDosage"},
+            {"url": "/Appointment/DispenseInnerView"},
+            {"url": "/Appointment/DispenseSecondaryMedicationInnerView"},
+            {"url": "/Appointment/MedicalSuppliesInnerView"},
+            {"url": "/Appointment/UpdateDispenseItem"},
+            {"url": "/Appointment/LastReviewAppointmentClinicalStatement"}
+        ],
+        "Go To Therapy Management Modal": [
+            {"url": "/Appointment/TherapyManagementModal"},
+            {"url": "/Appointment/TherapyManagementList"}
+        ],
+        "Go To Protocol Management Modal": [
+            {"url": "/Appointment/ProtocolManagementModal"},
+            {"url": "/Appointment/ProtocolManagementList"}
+        ],
+        "Select Lab Descirption In Protocol Management Modal": [
+            {"url": "/Appointment/LoadAccountProtocolLabList"},
+            {"url": "/Appointment/LoadQuickSelectLabs"}
+        ],
+        "Go To Regimen Management Modal": [
+            {"url": "/Appointment/LoadRegimenModal"}
+        ],
+        "Create Regimen": [
+            {"url": "/PatientOrder/CreateEditRegimen"},
+            {"url": "/PatientOrder/SaveAdditionalRegimenAttributes"},
+            {"url": "/Appointment/UpdateRegimenSecondaryMeds"}
+        ],
+        "Update Regimen": [
+            {"url": "/PatientOrder/CreateEditRegimen"},
+            {"url": "/PatientOrder/SaveAdditionalRegimenAttributes"},
+            {"url": "/Appointment/UpdateRegimenSecondaryMeds"}
+        ],
+        "Delete Regimen": [
+            {"url": "/Appointment/DeleteRegimen"}
+        ],
+        "Go To Encounter Note Visibility Settings Modal": [
+            {"url": "/Appointment/EncounterNoteTemplateModal"}
+        ],
+        "Create Template In Encounter Note Visibility Settings": [
+            {"url": "/Appointment/LoadCreateEditTemplateView"},
+            {"url": "/Appointment/InsertUpdateEncounterNoteTemplate"},
+            {"url": "/Appointment/EncounterNoteTemplateModal"}
+        ],
+        "Update Template In Encounter Note Visibility Settings": [
+            {"url": "/Appointment/LoadCreateEditTemplateView"},
+            {"url": "/Appointment/InsertUpdateEncounterNoteTemplate"},
+            {"url": "/Appointment/EncounterNoteTemplateModal"}
+        ],
+        "Delete Template In Encounter Note Visibility Settings": [
+            {"url": "/Appointment/RemoveEncounterNoteTemplate"},
+            {"url": "/Appointment/EncounterNoteTemplateModal"}
+        ]
+    },
+
+    "Provider Orders": {
+        "Open Provider Orders Tab": [
+            {"url": "/PatientOrder/PatientOrderList"}
+        ],
+        "Open Provider Orders Popup": [
+            {"url": "/PatientOrder/CreateEditPatientOrderModal"},
+            {"url": "/PatientOrder/PatientPhysicianOrderList"},
+            {"url": "/PatientOrder/CreateEditPatientOrderInnerView"}
+        ],
+        "Open Insurance": [
+        ],
+        "Create Provider Order": [
+            {"url": "/PatientOrder/CreateEditPatientOrderModal"},
+            {"url": "/PatientOrder/PatientPhysicianOrderList"},
+            {"url": "/PatientOrder/CreateEditPatientOrderInnerView"},
+            {"url": "/PatientOrder/ConfirmUpdateValidatePatientOrderModal"},
+            {"url": "/PatientOrder/CreateEditPatientOrder"},
+            {"url": "/PatientOrder/PatientOrderList"}
+        ],
+        "Edit Provider Order": [
+            {"url": "/PatientOrder/CreateEditPatientOrderModal"},
+            {"url": "/PatientOrder/PatientPhysicianOrderList"},
+            {"url": "/PatientOrder/CreateEditPatientOrderInnerView"},
+            {"url": "/PatientOrder/ConfirmUpdateValidatePatientOrderModal"},
+            {"url": "/PatientOrder/CreateEditPatientOrder"},
+            {"url": "/PatientOrder/PatientOrderList"}
+        ],
+        "Print Order Successfully": [
+            {"url": "/Report/PhysicianOrderReportToPDF"}
+        ],
+        "Publish Provider Order": [
+            {"url": "/PatientOrder/SetPublishingStatus"},
+            {"url": "/PatientOrder/PublishPhysicianOrderDocument"}
+        ],
+        "Assign Provider Order": [
+            {"url": "/PatientOrder/SignPatientOrder"}
+        ],
+        "Get Provider Order Import Template File": [
+            {"url": "/PatientOrder/ImportPatientOrder"},
+            {"url": "/PatientOrder/DownloadPatientOrderImportTemplate"}
+        ],
+        "Import Provider Order Excel File": [
+            {"url": "/PatientOrder/UploadPatientOrderExcel"},
+            {"url": "/PatientOrder/ImportPatientOrder"}
+        ],
+        "Confirm Import Provider Order File": [
+            {"url": "/PatientOrder/ProcessImportPatientOrder"}
+        ]
+    },
+    "Prior Authorizations": {
+        "Open Prior Authorizations Tab": [
+            {"url": "/PriorAuthorization/PriorAuthorizationList"}
+        ],
+        "Click Edit Prior Authorizations": [
+            {"url": "/PriorAuthorization/EditPriorAuthorizationModal"}
+        ],
+        "Click Update Prior Authorizations": [
+            {"url": "/PriorAuthorization/ConfirmUpdateValidatePriorAuthorizationModal"},
+            {"url": "/PriorAuthorization/CreatePriorAuthorization"},
+            {"url": "/PriorAuthorization/EditPriorAuthorizationModal"},
+            {"url": "/PriorAuthorization/PriorAuthorizationList"}
+        ],
+        "View PA": [
+            {"url": "/PriorAuthorization/ViewOnlyPriorAuthorizationModal"},
+            {"url": "/PriorAuthorization/PopulatePriorAuthorizationNoteView"},
+            {"url": "/PriorAuthorization/PopulateCPTCodeList"},
+            {"url": "/Patient/SaveCoPayAssistance"}
+        ]
+    },
+    "Appointment Prior Auth Status": {
+        "Go To Appointment Prior Auth Status": [
+            {"url": "/PriorAuthorization/PriorAuthorizationList"}
+        ],
+        "Go To Condensed Appointment Prior Authorizations Page": [
+            {"url": "/PriorAuthorization/EditPriorAuthorizationModal"}
+        ]
+    },
+    "Billable Events": {
+        "Filter Billable Event": [
+            {"url": "/Billing/BillableEventList"},
+            {"url": "/Billing/BillableEventItem"}
+        ],
+        "Click Unlock Button": [
+            {"url": "/Billing/CreateUpdateBillingSubmissionSnapshot"}
+        ],
+        "Click Lock Button": [
+            {"url": "/Billing/CreateUpdateBillingSubmissionSnapshot"}
+        ],
+        "Click Add Line Button": [
+            {"url": "/Billing/DisplayNewBillingResultLine"}
+        ],
+        "Add Cpt Code": [
+            {"url": "/Billing/AutocompleteCPTCodes"},
+            {"url": "/Billing/UpdateBillingModifiersAndICDCodes"}
+        ],
+        "Verify Change History Loads Correctly": [
+            {"url": "/Appointment/ChangeLogViewTabs"},
+            {"url": "/Appointment/AppointmentChangelogViewOnlyModal"},
+            {"url": "/Billing/BillableEventChangeLogView"}
+        ]
+    },
+    "Document": {
+        "Open Document": [
+            {"url": "/Document/DocumentList"}
+        ]
+    },
+    "Insurance Verification": {
+        "Go To Insurance Verification Ledger Page": [
+            {"url": "/InsuranceVerification/InsuranceVerificationList"}
+        ]
+    },
+    "Lab Tracker": {
+        "Open Add Lab Tracker Modal": [
+            {"url": "/LabTracker/AddOrUpdateLabTracker"}
+        ],
+        "Upsert Lab Tracker With All Fields": [
+            {"url": "/Appointment/getAutocompleteMemberPatients"},
+            {"url": "/LabTracker/GetLabTrackerFrequency"},
+            {"url": "/LabTracker/AutocompleteLabDescription"},
+            {"url": "/LabTracker/LabTrackerAttributeListForDescriptionId"},
+            {"url": "/Payer/GetAutocompletePayer"},
+            {"url": "/Appointment/GetAutocompleteTemplateICDCode"},
+            {"url": "/LabTracker/AddOrUpdateLabTracker"},
+            {"url": "/LabTracker/LabTrackerList"}
+        ],
+        "Create Attribute With All Fields": [
+            {"url": "/LabTracker/LabTrackerAttributeList"}
+        ],
+        "Show Empty Value In Lab Tracker Row": [
+            {"url": "/LabTracker/LabTrackerAttributeList"}
+        ],
+        "Delete Attributes": [
+            {"url": "/LabTracker/DeleteLabTrackerAttribute"}
+        ]
+    },
+    "Patient Alerts": {
+        "Go To Patient Alerts Page": [
+            {"url": "/Patient/LoadPatientAlertList"}
+        ],
+        "Create New Patient Alert": [
+            {"url": "/Patient/CreatePatientAlertModal"},
+            {"url": "/Patient/CreatePatientAlert"},
+            {"url": "/Patient/LoadPatientAlertList"}
+        ]
+    },
+    "Referrals": {
+        "Create A Referral": [
+            {"url": "/Referral/CreateEditReferralModal"},
+            {"url": "/Referral/LoadReferralTabs"},
+            {"url": "/Referral/ICD10CodeListModal"},
+            {"url": "/Referral/ReferralICD10CodeList"},
+            {"url": "/Referral/CreateEditReferral"},
+            {"url": "/Referral/ReferralList"}
+        ],
+        "Edit A Referral": [
+            {"url": "/Referral/ICD10CodeListModal"},
+            {"url": "/Referral/ReferralICD10CodeList"},
+            {"url": "/Referral/CreateEditReferral"},
+            {"url": "/Referral/ReferralList"}
+        ],
+        "Open Referral": [
+            {"url": "/Referral/CreateEditReferralModal"},
+            {"url": "/Referral/LoadReferralTabs"}
+        ]
+    },
+    "EMRAccountSetup": {
+        "Go To EMR Account Setup": [
+            {"url": "/Account/LoadEMRMappings"},
+            {"url": "/Account/LoadEMRMedicationList"},
+            {"url": "/Account/LoadEMREventTypeList"},
+            {"url": "/Account/LoadEMRLocationDescriptionList"},
+            {"url": "/Account/LoadEMRNurseSchedulingList"},
+            {"url": "/Account/LoadEmrCancelationCodeList"}
+        ],
+        "Set Configs For Emr Tools": [
+            {"url": "/Account/UpdateEMRViewSetting"}
+        ],
+        "Create Emr Medication Mapper": [
+            {"url": "/Account/AddEMRMedicationMapping"},
+            {"url": "/Account/LoadEMRMedicationList"}
+        ],
+        "Remove Emr Medication Mapper": [
+            {"url": "/Account/DeleteEMRMedicationMapping"},
+            {"url": "/Account/LoadEMRMedicationList"}
+        ],
+        "Create Emr Event Type": [
+            {"url": "/Appointment/AddEMREventTypeMapper"},
+            {"url": "/Account/LoadEMREventTypeList"}
+        ],
+        "Remove Emr Event Type": [
+            {"url": "/Appointment/DeleteEMREventTypeMapping"},
+            {"url": "/Account/LoadEMREventTypeList"}
+        ],
+        "Filter Adjust Location Descriptions Options": [
+            {"url": "/Appointment/AdjustCalendarSettings"},
+            {"url": "/Account/LoadEMRLocationDescriptionList"}
+        ],
+        "Update Location Description": [
+            {"url": "/Appointment/AdjustLocationDescription"}
+        ],
+        "Clear Location Description": [
+            {"url": "/Appointment/AdjustLocationDescription"}
+        ],
+        "Update Nurse Scheduling": [
+            {"url": "/Account/UpdateEMRNurseSchedule"},
+            {"url": "/Account/LoadEMRNurseSchedulingList"}
+        ],
+        "Create EMR Cancelation Code": [
+            {"url": "/Account/AddEmrCancelationCode"},
+            {"url": "/Account/LoadEmrCancelationCodeList"}
+        ],
+        "Update EMR Cancelation Code": [
+            {"url": "/Account/UpdateEmrCancelationCode"}
+        ],
+        "Delete EMR Cancelation Code": [
+            {"url": "/Account/DeleteEmrCancelationCode"},
+            {"url": "/Account/LoadEmrCancelationCodeList"}
+        ]
+    },
+    "AvailableKits": {
+        "Go To Available Kits Page": [
+            {"url": "/Kit/IndexList"}
+        ],
+        "Open Create A New Kit ModalPopup": [
+            {"url": "/kit/KitBuilder"},
+            {"url": "/kit/IncludedItemList"},
+            {"url": "/kit/ItemSearchResultsList"},
+            {"url": "/InventoryItem/SearchableCategoryBreadCrumbView"},
+            {"url": "/kit/ItemSearchResultsList"}
+        ],
+        "Create A New Kit": [
+            {"url": "/kit/CreateEditKit"}
+        ],
+        "Open Update Kit ModalPopup": [
+            {"url": "/kit/KitBuilder"},
+            {"url": "/kit/IncludedItemList"},
+            {"url": "/kit/ItemSearchResultsList"},
+            {"url": "/InventoryItem/SearchableCategoryBreadCrumbView"},
+            {"url": "/kit/ItemSearchResultsList"}
+        ],
+        "Edit Kit Row Is Visible In Available Kits List": [
+            {"url": "/kit/CreateEditKit"}
+        ],
+        "Delete Kit Row Is Visible In Available Kits List": [
+            {"url": "/kit/RemoveKit"}
+        ]
+    },
+    "ElectronicDispenseSheet": {
+        "Go To Electronic Dispense Records Page": [
+            {"url": "/Appointment/ElectronicDispenseAppointmentList"},
+            {"url": "/Appointment/ElectronicDispenseLoadAppointmentTabs"},
+            {"url": "/Appointment/ElectronicDispenseLoadActiveAppointmentHeader"}
+        ]
+    },
+    "Accounts": {
+        "Config Emr Mapping": [
+            {"url": "/Account/List"},
+            {"url": "/Account/Edit"}
+        ]
+    },
+    "ScheduledAppointmentOrdering": {
+        "Go To Scheduled Appointment Ordering": [
+            {"url": "/Appointment/AppointmentOrderCreationModal"},
+            {"url": "/Appointment/AppointmentAvailabilityHelperInner"},
+            {"url": "/Appointment/AutomatedOrderingAccountList"}
+        ],
+        "Order Product Through End Date Are Displayed Correctly When Entering End Date": [
+            {"url": "/Appointment/AutomatedOrderingAccountTabs"},
+            {"url": "/Appointment/ShowAppointmentsInNeedOfAction"}
+        ],
+        "Scheduled Appointment List Is Opened And Data Loads Successfully": [
+            {"url": "/Appointment/AutomatedOrderingAccountTabs"},
+            {"url": "/Appointment/AppointmentAvailabilityHelperInner"}
+        ],
+        "Click Build Order Button": [
+            {"url": "/Appointment/GeneratingSAODetails"},
+            {"url": "/Appointment/CreateAppointmentOrder"}
+        ],
+        "Verify Build Order Window Is Visible": [
+            {"url": "/Order/Build"},
+            {"url": "/Order/ItemSelector"},
+            {"url": "/Order/CanSubmitOrderByEdiAddress"},
+            {"url": "/Order/CategoryDropdownView"},
+            {"url": "/Order/GetAlternateShipToAddresses"},
+            {"url": "/Order/SetCustomerAccount"},
+            {"url": "/Order/getCustomerVendors"},
+            {"url": "/Order/GetAccountOrderLimit"},
+            {"url": "/Order/getCustomerAccountUsers"},
+            {"url": "/Order/getCustomerManufacturers"}
+        ],
+        "Change Appointment Status": [
+            {"url": "/Appointment/AppointmentStatusModal"},
+            {"url": "/Appointment/ChangeAppointmentStatus"}
+        ],
+        "Order Product By Date Range Are Displayed Correctly When Entering Date Range": [
+            {"url": "/Appointment/AutomatedOrderingAccountTabs"},
+            {"url": "/Appointment/ShowAppointmentsInNeedOfAction"}
+        ]
+    }
+}

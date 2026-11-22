@@ -1,0 +1,56 @@
+services:
+  selenium-hub:
+    image: selenium/hub:latest
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+    environment:
+      - SE_GRID_MAX_SESSION=20
+      - SE_SESSION_REQUEST_TIMEOUT=60
+      - SE_SESSION_RETRY_INTERVAL=1
+    networks:
+      - automation-network
+
+  chrome-node-1:
+    image: selenium/node-chrome:latest
+    shm_size: 1g
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_GRID_MAX_SESSION=3
+      - SE_SESSION_REQUEST_TIMEOUT=600
+      - SE_SESSION_RETRY_INTERVAL=3
+    networks:
+      - automation-network
+
+  chrome-node-2:
+    image: selenium/node-chrome:latest
+    shm_size: 1g
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - automation-network
+
+  chrome-node-3:
+    image: selenium/node-chrome:latest
+    shm_size: 1g
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - automation-network
+
+networks:
+  automation-network:
+    name: automation-network
+    driver: bridge

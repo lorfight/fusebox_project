@@ -1,0 +1,96 @@
+{
+        "PrimeSmokeAssoPay": {
+        "VerifyAssociations": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Search Association": [
+                {"url": "/"}
+            ],
+
+            "Verify Create Association": [
+                {"url": "/"}
+            ],
+
+            "Verify Update Association": [
+                {"url": "/"}
+            ],
+
+            "Verify Delete Association": [
+                {"url": "/"}
+            ],
+
+            "Verify View Changes Association": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyPayerManagement": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Map Master Payer": [
+                {"url": "/"}
+            ],
+
+            "Verify Create And Update Payer": [
+                {"url": "/"}
+            ],
+
+            "Verify Import Payer": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyModifierManagement": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Create Modifier Mapping": [
+                {"url": "/"}
+            ],
+
+            "Verify Create Update Modifier Category": [
+                {"url": "/"}
+            ],
+
+            "Verify Create Edit Modifier": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyPhysician": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Assign Physician": [
+                {"url": "/"}
+            ],
+
+            "Verify Assign Referral": [
+                {"url": "/"}
+            ],
+
+            "Verify Import Physician": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        }
+    }
+}

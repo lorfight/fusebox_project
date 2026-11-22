@@ -1,0 +1,142 @@
+{
+        "ClinicSmokeLogImp": {
+        "VerifyMyLogin": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Update User In My Login Menu": [
+                {"url": "/"}
+            ],
+
+            "Verify Apply Role Preset Permission": [
+                {"url": "/"}
+            ],
+
+            "Verify Update PIN": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyUserImport": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Import User": [
+                {"url": "/"}
+            ],
+
+            "Verify Export User": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "CRUDUser": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Create User": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyAdditionalTools": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Display Order Invoice Ledger": [
+                {"url": "/"}
+            ],
+
+            "Verify Display Reconciled Invoices": [
+                {"url": "/"}
+            ],
+
+            "Verify Display Fee Tracker": [
+                {"url": "/"}
+            ],
+
+            "Verify Display Order History": [
+                {"url": "/"}
+            ],
+
+            "Verify Send Test Order": [
+                {"url": "/"}
+            ],
+
+            "Verify Display Barcode Configuration Report": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyDepartments": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Create Department": [
+                {"url": "/"}
+            ],
+
+            "Verify Search And Assign Department": [
+                {"url": "/"}
+            ],
+
+            "Verify Update Department": [
+                {"url": "/"}
+            ],
+
+            "Verify Delete Department": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyGLCodes": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Create GL Code": [
+                {"url": "/"}
+            ],
+
+            "Verify Display GL Code": [
+                {"url": "/"}
+            ],
+
+            "Verify Update GL Code": [
+                {"url": "/"}
+            ],
+
+            "Verify Add GL Code To Selection": [
+                {"url": "/"}
+            ],
+
+            "Verify Assign And Unassign GL Code": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        }
+    }
+}

@@ -1,0 +1,100 @@
+{
+  "Prime": {
+    "OD_100": "aws/order/VerifyAPOrderInvoiceLedge.robot",
+    "OD_101": "aws/order/VerifyAPReconcileInvoices.robot",
+    "OD_102": "aws/order/VerifyBackorderedOrders.robot",
+    "OD_103": "aws/order/VerifyNewOrder.robot",
+    "OD_104": "aws/order/VerifyOpenOrder.robot",
+    "OD_105": "aws/order/VerifyOrderConfirmationMode.robot",
+    "OD_106": "aws/order/VerifyOrderHistory.robot",
+    "OD_107": "aws/order/VerifyOrderRequisitions.robot",
+    "OD_108": "aws/order/VerifyOrdersUnderDispute.robot",
+    "OD_109": "aws/order/VerifyPayerContractsTracker.robot",
+    "REP_100": "aws/order/VerifyReports.robot",
+    "OD_110": "aws/order/VerifyPendingOrder.robot",
+    "OD_111": "aws/order/VerifySalesOrder.robot",
+    "OD_112": "aws/order/VerityOrderDiscrepancyAudit.robot",
+    "Fee_100": "aws/order/VerifyFeeTracker.robot",
+    "RE_100": "aws/receiving/VerifyReceiveExistingOrder.robot",
+    "RE_101": "aws/receiving/VerifyReceivingHistory.robot",
+    "ACC_100": "aws/MyAccount/VerifyMyAccount.robot",
+    "INV_04": "aws/inventory/VerifyDevicesSmoke.robot",
+    "ADM_01": "aws/administration/VerifyInventoryItemsSmoke.robot",
+    "ADM_02": "aws/administration/VerifyVendorItemNumbers.robot",
+    "ADM_03": "aws/administration/VerifyCategorizedItemSmoke.robot",
+    "TO_01": "aws/trackOrders/VerifyTrackOrders.robot"
+  },
+  "PrimeSmoke_ADM": {
+    "ADM_100": "aws/administration/AccountErrorQueue.robot",
+    "ADM_101": "aws/administration/AppointmentAlertQueue.robot",
+    "ADM_102": "aws/administration/ContractPriceChangelog.robot",
+    "ADM_103": "aws/administration/ContractsAndPricingSets.robot",
+    "ADM_104": "aws/administration/CustomerShoppingLists.robot",
+    "ADM_105": "aws/administration/IntakeStatusQueue.robot",
+    "ADM_106": "aws/administration/OutboundFaxQueue.robot",
+    "ADM_107": "aws/administration/ProductPreferenceManagement.robot",
+    "ADM_108": "aws/administration/RoomTempStorageManagement.robot",
+    "ADM_109": "aws/administration/ScoreCard.robot",
+    "ADM_110": "aws/administration/TagManagement.robot",
+    "ADM_111": "aws/administration/VendorAccountNumbers.robot",
+    "ADM_112": "aws/administration/VendorCatalogs.robot",
+    "ADM_113": "aws/administration/Newsletter.robot"
+  },
+  "Admin": {
+    "INV_01": "aws/inventory/VerifyInventoryLevelsSmoke.robot",
+    "INV_02": "aws/inventory/VerifyInventoryReconcileSmoke.robot",
+    "INV_03": "aws/inventory/VerifyInventoryTransferSmoke.robot",
+    "INV_06": "aws/inventory/VerifyOnHandInventorySmoke.robot"
+  },
+  "Admin_QCA2": {
+    "INV_05": "aws/inventory/VerifyEndOfMonthSummarySmoke.robot"
+  },
+  "Prime_physician": {
+    "ADM_EAS": "aws/administration/EmrAccountSetup.robot",
+    "DIS_AVK": "aws/dispensing/AvailableKits.robot",
+    "DIS_EDR": "aws/dispensing/ElectronicDispenseSheet.robot",
+    "DIS_POS": "aws/dispensing/ProviderOrders.robot",
+    "OD_SAO": "aws/order/ScheduledAppointmentOrdering.robot"
+  },
+  "Clinic": {
+    "ADM_ASQ": "aws/administration/AppointmentSchedulingQueue.robot",
+    "DIS_AOL": "aws/dispensing/AppointmentOrderingLedger.robot",
+    "DIS_APS": "aws/dispensing/AppointmentPriorAuthStatus.robot",
+    "DIS_BLE": "aws/dispensing/BillableEvents.robot",
+    "DIS_IBS": "aws/dispensing/DispenseInventoryAndBillingStatus.robot",
+    "DIS_HAL": "aws/dispensing/HistoricalAppointmentLedger.robot",
+    "DIS_ISV": "aws/dispensing/InsuranceVerifications.robot",
+    "DIS_LAB": "aws/dispensing/LabTracker.robot",
+    "DIS_PAL": "aws/dispensing/PatientAlerts.robot",
+    "DIS_PAS": "aws/dispensing/PriorAuthorizations.robot",
+    "DIS_REF": "aws/dispensing/Referrals.robot",
+    "DIS_VDH": "aws/dispensing/ViewDispenseHistory.robot",
+    "DIS_VPH": "aws/dispensing/ViewPatientHistory.robot",
+    "PAT_PA": "aws/patient/Patient.robot"
+  },
+  "ClinicSmokeLogImp": {
+    "USER_01": "aws/administration/VerifyMyLogin.robot",
+    "USER_016": "aws/administration/VerifyUserImport.robot",
+    "USER_017": "aws/administration/CRUDUser.robot",
+    "ADM_06": "aws/administration/VerifyAdditionalTools.robot",
+    "ADM_013": "aws/administration/VerifyDepartments.robot",
+    "ADM_024": "aws/administration/VerifyGLCodes.robot"
+  },
+  "PrimeSmokeAssoPay": {
+    "ADM_01": "aws/administration/VerifyAssociations.robot",
+    "ADM_036": "aws/administration/VerifyPayerManagement.robot",
+    "ADM_040": "aws/administration/VerifyModifierManagement.robot",
+    "ADM_049": "aws/administration/VerifyPhysician.robot"
+  },
+
+  "Impersonate":[
+    "Prime",
+    "PrimeSmoke_ADM",
+    "Admin",
+    "Admin_QCA2",
+    "Prime_physician",
+    "Clinic",
+    "ClinicSmokeLogImp",
+    "PrimeSmokeAssoPay"
+  ]
+}

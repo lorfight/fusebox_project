@@ -1,0 +1,48 @@
+{
+  "device_name": "DEV",
+  "browser": {
+    "type": "headlesschrome",
+    "size": "1440,900",
+    "headless": true
+  },
+  "sender": {
+    "username": "",
+    "password": ""
+  },
+  "recipient": ["tu.nguyen@mainbridgehp.com"],
+  "fusebox": {
+    "url": "",
+    "username": "",
+    "password": ""
+  },
+  "edi": {
+    "hostname": "",
+    "username": "",
+    "password": "",
+    "port": ""
+  },
+  "hl7": {
+    "hostname": "",
+    "username": "",
+    "password": "",
+    "port": ""
+  },
+  "skype": {
+    "username": "",
+    "password": "",
+    "group": ""
+  },
+  "google":{
+    "type": "",
+    "project_id": "",
+    "private_key_id": "",
+    "private_key": "",
+    "client_email": "",
+    "client_id": "",
+    "auth_uri": "",
+    "token_uri": "",
+    "auth_provider_x509_cert_url": "",
+    "client_x509_cert_url": "",
+    "universe_domain": ""
+  }
+}

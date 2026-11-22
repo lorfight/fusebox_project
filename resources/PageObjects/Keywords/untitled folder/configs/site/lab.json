@@ -1,0 +1,80 @@
+{
+  "device_name": "CI LAB",
+  "browser": {
+    "type": "headlessChrome",
+    "size": "1440,900",
+    "headless": true
+  },
+  "sender": {
+    "username": "qc@mainbridgehp.com",
+    "password": "odmyolstighqdwde"
+  },
+  "recipient": [
+    "tu.nguyen@mainbridgehp.com",
+    "cuong.pham@mainbridgehp.com",
+    "vu.nguyen@mainbridgehp.com",
+    "hai.nguyen@mainbridgehp.com",
+    "tri.trinh@mainbridgehp.com",
+    "do.luong@mainbridgehp.com",
+    "huy.nguyen@mainbridgehp.com",
+    "huyenth.tran@mainbridgehp.com",
+    "nga.phan@mainbridgehp.com",
+    "quoc.nguyen@mainbridgehp.com",
+    "hieu.huynh@mainbridgehp.com",
+    "khanh.nguyen@mainbridgehp.com",
+    "baol.nguyen@mainbridgehp.com",
+    "hung.ho@mainbridgehp.com"
+  ],
+  "fusebox": {
+    "url": "https://fusebox-portal-ci.azurewebsites.net/",
+    "users": [
+      {
+        "username": "staging.qc.accounting.automation",
+        "password": "1qazZAQ!",
+        "role": "Accounting"
+      },
+
+      {
+        "username": "staging.qc.manager.automation",
+        "password": "1qazZAQ!",
+        "role": "Manager"
+      },
+      {
+        "username": "az.stg.user.automation2",
+        "password": "1qazZAQ!!!",
+        "role": "ClinicSmokePas",
+        "MFA": false
+      },
+      {
+        "username": "az.stg.user.automation3",
+        "password": "1qazZAQ!!",
+        "role": "ClinicSmokeLogImp",
+        "MFA": false
+      },
+      {
+        "username": "az.stg.prime.automation",
+        "password": "azstgPrime@25#",
+        "role": "PrimeSmokeAssoPay",
+        "MFA": false
+      },
+      {
+        "username": "staging.qc.quoc.nguyen.admin.qca2",
+        "password": "Quoc123456$",
+        "role": "Admin_QCA2"
+      },
+  
+
+      {
+        "username": "clinic.automation.staging",
+        "password": "1qazZAQ!",
+        "role": "Clinic"
+      },
+      {
+        "username": "physician.staging",
+        "password": "MbQualityAuto!!!@@2004",
+        "role": "Prime_physician"
+      }
+
+    ]
+  }
+}

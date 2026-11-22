@@ -1,0 +1,17 @@
+{
+    "Admin_QCA2": {
+        "VerifyEndOfMonthSummarySmoke": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Generate On Hand Inventory Report": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        }
+    }
+}

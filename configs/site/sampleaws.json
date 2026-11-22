@@ -1,0 +1,120 @@
+{
+  "device_name": "STAGING AWS",
+  "browser": {
+    "type": "headlessChrome",
+    "size": "1440,900",
+    "headless": true
+  },
+  "sender": {
+    "username": "qc@mainbridgehp.com",
+    "password": "odmyolstighqdwde"
+  },
+  "recipient": [
+    "tu.nguyen@mainbridgehp.com",
+    "cuong.pham@mainbridgehp.com",
+    "vu.nguyen@mainbridgehp.com",
+    "hai.nguyen@mainbridgehp.com",
+    "tri.trinh@mainbridgehp.com",
+    "do.luong@mainbridgehp.com",
+    "huy.nguyen@mainbridgehp.com",
+    "huyenth.tran@mainbridgehp.com",
+    "nga.phan@mainbridgehp.com",
+    "quoc.nguyen@mainbridgehp.com",
+    "hieu.huynh@mainbridgehp.com",
+    "khanh.nguyen@mainbridgehp.com",
+    "baol.nguyen@mainbridgehp.com",
+    "hung.ho@mainbridgehp.com"
+  ],
+  "fusebox": {
+    "url": "https://portal.qa.fusebox.verity-solutions.com/",
+    "users": [
+      {
+        "username": "staging.qc.accounting.automation",
+        "password": "MbQualityAuto!!!@@1506",
+        "role": "Accounting",
+        "account":"QCA1 (113464)"
+      },
+      {
+        "username": "automation.staging",
+        "password": "MbQualityAuto!!!@@26",
+        "role": "Admin",
+        "account":"QCA1 (113464)"
+      },
+      {
+        "username": "staging.qc.manager.automation",
+        "password": "MbQualityAuto!!!@@1506",
+        "role": "Manager",
+        "account":"QCA1 (113464)"
+      },
+      {
+        "username": "az.stg.user.automation2",
+        "password": "1qazZAQ!!!",
+        "role": "ClinicSmokePas",
+        "MFA": false,
+        "account":"QCA1 (113464)"
+      },
+      {
+        "username": "az.stg.user.automation3",
+        "password": "1qazZAQ!!!",
+        "role": "ClinicSmokeLogImp",
+        "MFA": false,
+        "account":"QCA1 (113464)"
+      },
+      {
+        "username": "aws.stg.prime.automation",
+        "password": "1qazZAQ!!!",
+        "role": "PrimeSmokeAssoPay",
+        "MFA": false,
+        "account":"Account 6 (100006)"
+      },
+      {
+        "username": "staging.qc.quoc.nguyen.admin.qca2",
+        "password": "1qazZAQ!!",
+        "role": "Admin_QCA2",
+        "account":"QCA2 (113644)"
+      },
+      {
+        "username": "staging.qc.quoc.nguyen.prime",
+        "password": "1qazZAQ!!!",
+        "role": "Prime",
+        "account":"Account 6 (100006)"
+      },
+      {
+        "username": "staging.qc.nga.phan",
+        "password": "1qazZAQ!!!",
+        "role": "PrimeSmoke_ADM",
+        "account":"Account 6 (100006)"
+      },
+      {
+        "username": "clinic.automation.staging",
+        "password": "1qazZAQ!!!",
+        "role": "Clinic",
+        "account":"QCA1 (113464)"
+      },
+      {
+        "username": "physician.staging",
+        "password": "1qazZAQ!!!",
+        "role": "Prime_physician",
+        "account":"Account 6 (100006)"
+      },
+      {
+        "username": "automation.sao.staging",
+        "password": "!QAZzaq1",
+        "role": "Admin_SAO",
+        "account":"Account 6 (100006)"
+      },
+      {
+        "username": "az.stg.user.automation4",
+        "password": "1qazZAQ!!",
+        "role": "ClinicRegresSAO",
+        "account":"Account 6 (100006)"
+      },
+      {
+        "username": "qc.prime.impersonate",
+        "password": "1qazZAQ!!!",
+        "role": "Impersonate",
+        "account":"Account 6 (100006)"
+      }
+    ]
+  }
+}

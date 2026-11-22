@@ -1,0 +1,72 @@
+{
+        "Admin": {
+        "VerifyInventoryLevelsSmoke": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Edit Inventory In Inventory Levels": [
+                {"url": "/"}
+            ],
+
+            "Add New Lot And Edit Lot In Inventory Levels": [
+                {"url": "/"}
+            ],
+
+            "Adjust Qty Item In Inventory Level And Check Transaction": [
+                {"url": "/"}
+            ],
+
+            "Open Inventory Levels Create New Backstock And Verify Feature In New Backstock": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyInventoryReconcileSmoke": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Open Serialized Item Tracker": [
+                {"url": "/"}
+            ],
+
+            "Open Inventory Reconcile to Complete Reconcile Then Open Complete Log": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyInventoryTransferSmoke": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Build Transfer And Verify In Inventory Transfer": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VerifyOnHandInventorySmoke": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Generate On Hand Inventory Report": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        }
+    }
+}

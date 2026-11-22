@@ -1,0 +1,13 @@
+#Create New Inventory
+OpenActiveReconcile="link:Open Active Reconcile"
+CreateInventoryXpath="xpath://*[@id='newInventory']"
+SaveBtn="xpath://*[@id='SaveBtn']"
+CloseModalBtn="xpath://div[@class='modal-footer']//button[@id='CloseBtn']"
+DescriptionInventoryInput="xpath://input[@id='FacilityDescription']"
+TrackInventoryValue="xpath://input[@id='TrackInventoryValue']"
+DefaultFacilityType="xpath://input[@id='DefaultFacilityType']"
+IsPatientBasedInventory="xpath://input[@id='IsPatientBasedInventory']"
+RemoveInventoryBtn="xpath://a[contains(text(),'Remove Inventory Department ')]"
+EditInventoryBtn="xpath://*[@id='editInventoryButton']"
+InventoryReportBtn="xpath://*[@class='BasicInventory  open']//a[contains(text(),'${type_report}')]"
+SelectInventory="//a[text()='${inventory_name}' and @data-toggle='tab']"

@@ -1,0 +1,51 @@
+{
+  "Admin": {
+    "PaMan_017": "regression/newpatient/AccountAssignments.robot",
+    "PaMan_011": "regression/newpatient/Allergies.robot",
+    "PaMan_018": "regression/newpatient/Assessment.robot",
+    "PaMan_006": "regression/newpatient/CopayAssistance.robot",
+    "PaMan_015": "regression/newpatient/Diagnosis.robot",
+    "PaMan_010": "regression/newpatient/Documents.robot",
+    "PaMan_007": "regression/newpatient/LabTracker.robot",
+    "PaMan_004": "regression/newpatient/PatientAddresses.robot",
+    "PaMan_013": "regression/newpatient/PatientAlerts.robot",
+    "PaMan_016": "regression/newpatient/PatientHistory.robot",
+    "PaMan_001": "regression/newpatient/PatientInformation.robot",
+    "PaMan_014": "regression/newpatient/PatientList.robot",
+    "PaMan_012": "regression/newpatient/PatientPayments.robot",
+    "PaMan_019": "regression/newpatient/PatientTools.robot",
+    "PaMan_002": "regression/newpatient/PayerInformation.robot",
+    "PaMan_009": "regression/newpatient/PriorAuthorizations.robot",
+    "PaMan_003": "regression/newpatient/ProgressNote.robot",
+    "PaMan_008": "regression/newpatient/ProviderOrders.robot",
+    "PaMan_005": "regression/newpatient/VitalSigns.robot",
+    "OD_PAR": "regression/ordering/Reports.robot"
+  },
+  "Accounting": {
+    "IV_001": "regression/inventory/InventoryLotReconcile.robot",
+    "IV_002": "regression/inventory/InventoryReconcile.robot",
+    "IV_004": "regression/inventory/VerifyReconcileIScannedItems.robot",
+    "IV_005": "regression/inventory/VerifyViewAllItems.robot",
+    "IV_006": "regression/inventory/VerifyInventoryReconcileOptionComplexity.robot",
+    "IV_007": "regression/inventory/VerifyInventoryReconcileScannedProduct.robot",
+    "IV_008": "regression/inventory/VerifyInventoryLevelScreen.robot",
+    "IV_009": "regression/inventory/VerifyInventoryReconcileDetail.robot",
+    "IV_010": "regression/inventory/VerifyToastMessageReconcile.robot",
+    "IV_011": "regression/inventory/VerifyValueTableReconcile.robot",
+    "IV_012": "regression/inventory/VerifyFunctionButtonReconcile.robot",
+    "IV_013": "regression/inventory/VerifyInventoryAfterReconcile.robot",
+    "IV_014": "regression/inventory/Inventory[888].robot"
+  },
+  "Datafee": {
+    "REG_DF": "regression/datafee/DataFee.robot"
+  },
+  "Prime_physician": {
+    "AMZ_LIV": "regression/livechat/LiveChat.robot"
+  },
+  "ClinicRegresSAO": {
+    "SAO_03": "regression/sao/ViewPreOrder.robot"
+  },
+  "Admin_SAO": {
+    "SAO_REG": "regression/sao/CreateSAO.robot"
+  }
+}

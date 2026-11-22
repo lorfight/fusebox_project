@@ -1,0 +1,206 @@
+{
+        "PrimeSmoke_ADM": {
+        "AccountErrorQueue": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Account Error List Displays Successfully": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "AppointmentAlertQueue": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Alert Queue History Displays Successfully": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "ContractPriceChangelog": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Contract Price Changelog Update And Displays Successfully": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "ContractsAndPricingSets": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "View Available Items And Contracted Items In New Contract Pricing Sets": [
+                {"url": "/"}
+            ],
+
+            "Export Pre-Filled Template And Import MemberShip": [
+                {"url": "/"}
+            ],
+
+            "Verify Copy And View Copy Contract List": [
+                {"url": "/"}
+            ],
+
+            "Verify Edit Copy And Delete Contract": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "CustomerShoppingLists": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Customer Shopping Lists": [
+                {"url": "/"}
+            ],
+
+            "Check Shopping List Update Successfully": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "IntakeStatusQueue": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Intake Status Queue Displays Successfully": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "OutboundFaxQueue": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Fax Queue List Displays Successfully": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "ProductPreferenceManagement": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Product Preference Management": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "RoomTempStorageManagement": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Room Temp Storage Management": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "ScoreCard": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Score Card Functionality": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "TagManagement": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Tag Management": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VendorAccountNumbers": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Update Detail Verdor Account Number": [
+                {"url": "/"}
+            ],
+
+            "Verify Export Member Ship Report": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "VendorCatalogs": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Vendor Catalogs List Displays And Export Catalog Item": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "Newsletter": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+
+            "Verify Add Newsletter And Open PDF Successfully": [
+                {"url": "/"}
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        }
+    }
+}

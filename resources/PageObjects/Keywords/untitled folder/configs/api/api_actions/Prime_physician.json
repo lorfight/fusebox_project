@@ -1,0 +1,130 @@
+{
+    "Prime_physician": {
+        "EmrAccountSetup": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User",
+                "EMRAccountSetup.Go To EMR Account Setup",
+                "EMRAccountSetup.Set Configs For Emr Tools"
+            ],
+            
+            "Verify EMR Tools / Settings Page Opens Successfully And Displays All Configuration Sections": [],
+            
+            "Add / Remove EMR Medication Mapping": [
+                "EMRAccountSetup.Create Emr Medication Mapper",
+                "EMRAccountSetup.Remove Emr Medication Mapper"
+            ],
+
+            "Add / Remove EMR Event Type Mapper": [
+                "EMRAccountSetup.Create Emr Event Type",
+                "EMRAccountSetup.Remove Emr Event Type"
+            ],
+
+            "Adjust Location Description": [
+                "EMRAccountSetup.Filter Adjust Location Descriptions Options",
+                "EMRAccountSetup.Update Location Description",
+                "EMRAccountSetup.Clear Location Description"
+            ],
+
+            "Update EMR Nurse Schedule": [
+                "EMRAccountSetup.Update Nurse Scheduling"
+            ],
+
+            "Add / Update / Remove EMR Cancelation Code": [
+                "EMRAccountSetup.Create EMR Cancelation Code",
+                "EMRAccountSetup.Update EMR Cancelation Code",
+                "EMRAccountSetup.Delete EMR Cancelation Code"
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "AvailableKits": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User",
+                "AvailableKits.Go To Available Kits Page"
+            ],
+
+            "CRUD And Confirm Kit Is Visible In Available Kits List": [
+                "AvailableKits.Open Create A New Kit ModalPopup",
+                "AvailableKits.Create A New Kit",
+                "AvailableKits.Open Update Kit ModalPopup",
+                "AvailableKits.Edit Kit Row Is Visible In Available Kits List",
+                "AvailableKits.Delete Kit Row Is Visible In Available Kits List"
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "ElectronicDispenseSheet": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User"
+            ],
+            
+            "Scheduled Appointments List Is Displayed Correctly In Electronic Dispense Records": [
+                "ElectronicDispenseSheet.Go To Electronic Dispense Records Page"
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "ProviderOrders": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User",
+                "Patient.Create Patient"
+            ],
+            
+            "Provider Order Creation Process": [
+                "Accounts.Config Emr Mapping",
+                "Provider Orders.Create Provider Order",
+                "Provider Orders.Edit Provider Order",
+                "Provider Orders.Print Order Successfully",
+                "Document.Open Document",
+                "Prior Authorizations.View PA",
+                "Provider Orders.Publish Provider Order",
+                "Provider Orders.Assign Provider Order"
+            ],
+            
+            "Import Provider Order": [
+                "Provider Orders.Get Provider Order Import Template File",
+                "Provider Orders.Import Provider Order Excel File",
+                "Provider Orders.Confirm Import Provider Order File"
+            ],
+            
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        },
+        "ScheduledAppointmentOrdering": {
+            "beforeSuite": [
+                "Impersonate.Impersonate User",
+                "Patient.Create Patient",
+                "Appointment.Go To Schedule New Appointment",
+                "Appointment.Schedule Appointment Without Office Visit"
+            ],
+            
+            "Action With Account Section": [
+                "ScheduledAppointmentOrdering.Go To Scheduled Appointment Ordering",
+                "ScheduledAppointmentOrdering.Order Product Through End Date Are Displayed Correctly When Entering End Date",
+                "ScheduledAppointmentOrdering.Scheduled Appointment List Is Opened And Data Loads Successfully",
+                "ScheduledAppointmentOrdering.Click Build Order Button",
+                "ScheduledAppointmentOrdering.Verify Build Order Window Is Visible"
+            ],
+            
+            "Create Order For Appointments": [
+                "ScheduledAppointmentOrdering.Change Appointment Status",
+                "ScheduledAppointmentOrdering.Go To Scheduled Appointment Ordering",
+                "ScheduledAppointmentOrdering.Order Product By Date Range Are Displayed Correctly When Entering Date Range",
+                "ScheduledAppointmentOrdering.Scheduled Appointment List Is Opened And Data Loads Successfully",
+                "ScheduledAppointmentOrdering.Click Build Order Button",
+                "ScheduledAppointmentOrdering.Verify Build Order Window Is Visible"
+            ],
+
+            "afterSuite": [
+                "Impersonate.Impersonate User"
+            ]
+        }
+    }
+}

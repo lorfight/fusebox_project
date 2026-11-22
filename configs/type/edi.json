@@ -1,0 +1,46 @@
+{
+  "Edi": {
+    "Cura_850": "edi/curascript/1.CreateOrder.robot",
+    "Cura_997": "edi/curascript/2.OrderReceived.robot",
+    "Cura_855": "edi/curascript/3.OrderConfirmation.robot",
+    "Cura_856": "edi/curascript/4.OrderShipping.robot",
+    "Cura_810": "edi/curascript/5.OrderInvoice.robot",
+
+    "Bio_850": "edi/biocaresd/1.CreateOrder.robot",
+    "Bio_997": "edi/biocaresd/2.OrderReceived.robot",
+    "Bio_855": "edi/biocaresd/3.OrderConfirmation.robot",
+    "Bio_856": "edi/biocaresd/4.OrderShipping.robot",
+    "Bio_810": "edi/biocaresd/5.OrderInvoice.robot",
+
+    "Cencora_850": "edi/cencora_besse/1.CreateOrder.robot",
+    "Cencora_855": "edi/cencora_besse/2.OrderConfirmation.robot",
+    "Cencora_856": "edi/cencora_besse/3.OrderShipping.robot",
+    "Cencora_810": "edi/cencora_besse/4.OrderInvoice.robot",
+
+    "Fff_850": "edi/fff/1.CreateOrder.robot",
+    "Fff_855": "edi/fff/2.OrderConfirmation.robot",
+    "Fff_810": "edi/fff/4.OrderInvoice.robot",
+
+    "MMS_850": "edi/mckesson_medical_surgical/1.CreateOrder.robot",
+    "MMS_855": "edi/mckesson_medical_surgical/2.OrderConfirmation.robot",
+    "MMS_856": "edi/mckesson_medical_surgical/3.OrderShipping.robot",
+    "MMS_810": "edi/mckesson_medical_surgical/4.OrderInvoice.robot",
+
+    "MSH_850": "edi/mckesson_specialty_health/1.CreateOrder.robot",
+    "MSH_997": "edi/mckesson_specialty_health/2.OrderReceived.robot",
+    "MSH_855": "edi/mckesson_specialty_health/3.OrderConfirmation.robot",
+    "MSH_856": "edi/mckesson_specialty_health/4.OrderShipping.robot",
+    "MSH_810": "edi/mckesson_specialty_health/5.OrderInvoice.robot",
+
+    "ML_850": "edi/medline/1.CreateOrder.robot",
+    "ML_855": "edi/medline/2.OrderConfirmation.robot",
+    "ML_856": "edi/medline/3.OrderShipping.robot",
+    "ML_810": "edi/medline/4.OrderInvoice.robot",
+
+    "Takeda_850": "edi/takeda/1.CreateOrder.robot",
+    "Takeda_997": "edi/takeda/2.OrderReceived.robot",
+    "Takeda_855": "edi/takeda/3.OrderConfirmation.robot",
+    "Takeda_856": "edi/takeda/4.OrderShipping.robot",
+    "Takeda_810": "edi/takeda/5.OrderInvoice.robot"
+  }
+}

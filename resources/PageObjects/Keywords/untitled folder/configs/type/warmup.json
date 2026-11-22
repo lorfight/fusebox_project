@@ -1,0 +1,41 @@
+{
+  "Admin": {
+    "LG_100": "warmup/login/Login.robot",
+    "EOB_100": "warmup/billableevents/VerifyBillableEvents.robot",
+    "IV_100": "warmup/inventory/VerifyReconcile.robot",
+    "IV_103": "warmup/inventory/LoadingInventoryReconcile.robot",
+    "IV_104": "warmup/inventory/VerifyViewAllItems.robot",
+    "OD_100": "warmup/order/VerifyOrder.robot",
+    "OD_101": "warmup/order/VerifyOrderAndReceiveNow.robot",
+    "TR_100": "warmup/transfer/VerifyTransfer.robot",
+    "AP_100": "warmup/appointment/VerifyDispense.robot"
+  },
+  "Accounting": {
+    "LG_100": "warmup/login/Login.robot",
+    "AP_101": "warmup/appointment/VerifyAppointment.robot"
+  },
+  "Manager": {
+    "IV_102": "warmup/inventory/VerifyReconcileDetail.robot"
+  },
+  "ContractAdmin": {
+    "LG_100": "warmup/login/Login.robot"
+  },
+  "TechSupport": {
+    "LG_100": "warmup/login/Login.robot"
+  },
+  "Advanced": {
+    "LG_100": "warmup/login/Login.robot"
+  },
+  "Limited": {
+    "LG_100": "warmup/login/Login.robot"
+  },
+  "Standard": {
+    "LG_100": "warmup/login/Login.robot"
+  },
+  "AccountingSmokeAPT": {
+    "AP_101": "warmup/appointment/VerifyAppointment.robot"
+  },
+  "Datafee": {
+    "SMK_DF": "warmup/datafee/DataFee.robot"
+  }
+}
