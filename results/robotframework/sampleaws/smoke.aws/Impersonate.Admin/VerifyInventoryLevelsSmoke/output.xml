@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Rebot 6.1.1 (Python 3.10.11 on win32)" generated="20260805 13:42:17.196" rpa="false" schemaversion="4">
+<suite id="s1" name="VerifyInventoryLevelsSmoke" source="Y:\Personal\FolderBranch\aws\tests\aws\inventory\VerifyInventoryLevelsSmoke.robot">
+<kw name="Setup Suite" type="SETUP">
+<kw name="Get Data" library="CommonKeywords">
+<var>${data_input}</var>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${SUITE_NAME}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260805 13:41:43.049" endtime="20260805 13:41:43.049"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${parts}</var>
+<arg>${SUITE_NAME}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20260805 13:41:43.049" level="INFO">${parts} = ['VerifyInventoryLevelsSmoke']</msg>
+<status status="PASS" starttime="20260805 13:41:43.049" endtime="20260805 13:41:43.050"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${SUITE_NAME}</var>
+<arg>${parts}</arg>
+<arg>-1</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20260805 13:41:43.050" level="INFO">${SUITE_NAME} = VerifyInventoryLevelsSmoke</msg>
+<status status="PASS" starttime="20260805 13:41:43.050" endtime="20260805 13:41:43.050"/>
+</kw>
+<kw name="Fetch Test Data" library="Testdata">
+<var>${data_input}</var>
+<arg>suite=${SUITE_NAME}</arg>
+<arg>source=${SUITE_SOURCE}</arg>
+<msg timestamp="20260805 13:41:48.833" level="INFO">${data_input} = {'checked_location': 'QCA1', 'checked_facility': 'Verify Inventory Levels Smoke', 'adjust_lot_ndc': '50474-0700-62', 'backstock_name': 'New Backstock', 'location': 'Location Backstock', 'items': [{'nd...</msg>
+<status status="PASS" starttime="20260805 13:41:43.050" endtime="20260805 13:41:48.833"/>
+</kw>
+<return>
+<value>${data_input}</value>
+<status status="PASS" starttime="20260805 13:41:48.833" endtime="20260805 13:41:48.833"/>
+</return>
+<msg timestamp="20260805 13:41:48.834" level="INFO">${data_input} = {'checked_location': 'QCA1', 'checked_facility': 'Verify Inventory Levels Smoke', 'adjust_lot_ndc': '50474-0700-62', 'backstock_name': 'New Backstock', 'location': 'Location Backstock', 'items': [{'nd...</msg>
+<status status="PASS" starttime="20260805 13:41:43.048" endtime="20260805 13:41:48.834"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${data_input}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20260805 13:41:48.834" level="INFO">${data_input} = {'checked_location': 'QCA1', 'checked_facility': 'Verify Inventory Levels Smoke', 'adjust_lot_ndc': '50474-0700-62', 'backstock_name': 'New Backstock', 'location': 'Location Backstock', 'items': [{'nd...</msg>
+<status status="PASS" starttime="20260805 13:41:48.834" endtime="20260805 13:41:48.834"/>
+</kw>
+<kw name="Login To Fusebox" library="LoginKeywords">
+<arg>user_name=${Username}</arg>
+<arg>password=${Password}</arg>
+<kw name="Get Variable Value" library="BuiltIn">
+<var>${MFA}</var>
+<arg>${MFA}</arg>
+<arg>${FALSE}</arg>
+<doc>Returns variable value or ``default`` if the variable does not exist.</doc>
+<msg timestamp="20260805 13:41:48.835" level="INFO">${MFA} = False</msg>
+<status status="PASS" starttime="20260805 13:41:48.835" endtime="20260805 13:41:48.835"/>
+</kw>
+<if>
+<branch type="IF" condition="${MFA} == ${TRUE}">
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${SiteUrl}</arg>
+<arg>${SiteUrl}/Ciam/Login</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20260805 13:41:48.835" endtime="20260805 13:41:48.835"/>
+</kw>
+<kw name="Open Browser To Login Page" library="LoginKeywords">
+<status status="NOT RUN" starttime="20260805 13:41:48.835" endtime="20260805 13:41:48.835"/>
+</kw>
+<kw name="Login Okta Google Authenticator" library="LoginKeywords">
+<arg>${user_name}</arg>
+<arg>${password}</arg>
+<status status="NOT RUN" starttime="20260805 13:41:48.835" endtime="20260805 13:41:48.835"/>
+</kw>
+<status status="NOT RUN" starttime="20260805 13:41:48.835" endtime="20260805 13:41:48.835"/>
+</branch>
+<branch type="ELSE">
+<kw name="Open Browser To Login Page" library="LoginKeywords">
+<kw name="Config Browser" library="LoginKeywords">
+<var>${chrome_options}</var>
+<var>${chromedriver_path}</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20260805 13:41:48.836" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000020CD417E140&gt;</msg>
+<status status="PASS" starttime="20260805 13:41:48.836" endtime="20260805 13:41:48.836"/>
+</kw>
+<kw name="Join Path" library="OperatingSystem">
+<var>${EXPORT_PATH}</var>
+<arg>${EXECDIR}</arg>
+<arg>results/export/${Username}</arg>
+<doc>Joins the given path part(s) to the given base path.</doc>
+<msg timestamp="20260805 13:41:48.836" level="INFO">${EXPORT_PATH} = Y:\Personal\FolderBranch\aws\results\export\qc.prime.impersonate</msg>
+<status status="PASS" starttime="20260805 13:41:48.836" endtime="20260805 13:41:48.836"/>
+</kw>
+<kw name="Get Chromedriver Path" library="CustomLibrary">
+<var>${chromedriver_path}</var>
+<arg>${Browser}</arg>
+<msg timestamp="20260805 13:41:48.837" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20260805 13:41:53.807" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg timestamp="20260805 13:41:53.911" level="INFO">Get LATEST chromedriver version for google-chrome</msg>
+<msg timestamp="20260805 13:41:53.989" level="INFO">Driver [C:\Users\C9G4WJ\.wdm\drivers\chromedriver\win64\151.0.7922.76\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache</msg>
+<msg timestamp="20260805 13:41:53.990" level="INFO">C:\Users\C9G4WJ\.wdm\drivers\chromedriver\win64\151.0.7922.76\chromedriver-win32/chromedriver.exe</msg>
+<msg timestamp="20260805 13:41:53.990" level="INFO">${chromedriver_path} = C:\Users\C9G4WJ\.wdm\drivers\chromedriver\win64\151.0.7922.76\chromedriver-win32/chromedriver.exe</msg>
+<status status="PASS" starttime="20260805 13:41:48.836" endtime="20260805 13:41:53.990"/>
+</kw>
+<kw name="Get Chrome Option" library="CustomLibrary">
+<var>${appState}</var>
+<msg timestamp="20260805 13:41:53.991" level="INFO">${appState} = {"recentDestinations": [{"id": "Save as PDF", "origin": "local"}], "selectedDestinationId": "Save as PDF", "version": 2}</msg>
+<status status="PASS" starttime="20260805 13:41:53.991" endtime="20260805 13:41:53.991"/>
+</kw>
+<kw name="Set Environment Variable" library="OperatingSystem">
+<arg>EXPORT_PATH</arg>
+<arg>${EXPORT_PATH}</arg>
+<doc>Sets an environment variable to a specified value.</doc>
+<msg timestamp="20260805 13:41:53.991" level="INFO">Environment variable 'EXPORT_PATH' set to value 'Y:\Personal\FolderBranch\aws\results\export\qc.prime.impersonate'.</msg>
+<status status="PASS" starttime="20260805 13:41:53.991" endtime="20260805 13:41:53.991"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${experimental_flags}</var>
+<arg>calculate-native-win-occlusion@2</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20260805 13:41:53.992" level="INFO">${experimental_flags} = ['calculate-native-win-occlusion@2']</msg>
+<status status="PASS" starttime="20260805 13:41:53.992" endtime="20260805 13:41:53.992"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${excludeSwitches}</var>
+<arg>enable-logging</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20260805 13:41:53.992" level="INFO">${excludeSwitches} = ['enable-logging']</msg>
+<status status="PASS" starttime="20260805 13:41:53.992" endtime="20260805 13:41:53.992"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${chromeLocalStatePrefs}</var>
+<arg>browser.enabled_labs_experiments=${experimental_flags}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20260805 13:41:53.992" level="INFO">${chromeLocalStatePrefs} = {'browser.enabled_labs_experiments': ['calculate-native-win-occlusion@2']}</msg>
+<status status="PASS" starttime="20260805 13:41:53.992" endtime="20260805 13:41:53.992"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${prefs}</var>
+<arg>download.default_directory=${EXPORT_PATH}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20260805 13:41:53.993" level="INFO">${prefs} = {'download.default_directory': 'Y:\\Personal\\FolderBranch\\aws\\results\\export\\qc.prime.impersonate'}</msg>
+<status status="PASS" starttime="20260805 13:41:53.992" endtime="20260805 13:41:53.993"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${prefs}</arg>
+<arg>savefile.default_directory=${EXPORT_PATH}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20260805 13:41:53.993" endtime="20260805 13:41:53.993"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${prefs}</arg>
+<arg>printing.print_preview_sticky_settings.appState=${appState}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20260805 13:41:53.993" endtime="20260805 13:41:53.993"/>
+</kw>
+<kw name="Is Linux Platform" library="CustomLibrary">
+<var>${IS_LINUX_PLATFORM}</var>
+<msg timestamp="20260805 13:41:53.993" level="INFO">${IS_LINUX_PLATFORM} = False</msg>
+<status status="PASS" starttime="20260805 13:41:53.993" endtime="20260805 13:41:53.993"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${IS_LINUX_PLATFORM}</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20260805 13:41:53.994" endtime="20260805 13:41:53.994"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${IS_LINUX_PLATFORM}</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20260805 13:41:53.994" endtime="20260805 13:41:53.994"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${IS_LINUX_PLATFORM}</arg>
+<arg>Call Method</arg>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20260805 13:41:53.994" endtime="20260805 13:41:53.994"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--kiosk-printing</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20260805 13:41:53.994" endtime="20260805 13:41:53.994"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>window-size\=1920,1080</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20260805 13:41:53.994" endtime="20260805 13:41:53.994"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20260805 13:41:53.994" endtime="20260805 13:41:53.995"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_experimental_option</arg>
+<arg>localState</arg>
+<arg>${chromeLocalStatePrefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20260805 13:41:53.995" endtime="20260805 13:41:53.995"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_experimental_option</arg>
+<arg>excludeSwitches</arg>
+<arg>${excludeSwitches}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20260805 13:41:53.995" endtime="20260805 13:41:53.995"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${loggingPrefs}</var>
+<arg>performance=ALL</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20260805 13:41:53.995" level="INFO">${loggingPrefs} = {'performance': 'ALL'}</msg>
+<status status="PASS" starttime="20260805 13:41:53.995" endtime="20260805 13:41:53.995"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>set_capability</arg>
+<arg>goog:loggingPrefs</arg>
+<arg>${loggingPrefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20260805 13:41:53.995" endtime="20260805 13:41:53.995"/>
+</kw>
+<return>
+<value>${chrome_options}</value>
+<value>${chromedriver_path}</value>
+<status status="PASS" starttime="20260805 13:41:53.996" endtime="20260805 13:41:53.996"/>
+</return>
+<msg timestamp="20260805 13:41:53.996" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000020CD417E140&gt;</msg>
+<msg timestamp="20260805 13:41:53.996" level="INFO">${chromedriver_path} = C:\Users\C9G4WJ\.wdm\drivers\chromedriver\win64\151.0.7922.76\chromedriver-win32/chromedriver.exe</msg>
+<status status="PASS" starttime="20260805 13:41:48.836" endtime="20260805 13:41:53.996"/>
+</kw>
+<kw name="Is Linux Platform" library="CustomLibrary">
+<var>${IS_LINUX_PLATFORM}</var>
+<msg timestamp="20260805 13:41:53.996" level="INFO">${IS_LINUX_PLATFORM} = False</msg>
+<status status="PASS" starttime="20260805 13:41:53.996" endtime="20260805 13:41:53.996"/>
+</kw>
+<if>
+<branch type="IF" condition="${IS_LINUX_PLATFORM} == ${True} and &quot;${test_execution_type}&quot; == &quot;parallel&quot;">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${SiteUrl}</arg>
+<arg>${Browser}</arg>
+<arg>remote_url=${REMOTE_URL}</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" starttime="20260805 13:41:53.996" endtime="20260805 13:41:53.996"/>
+</kw>
+<status status="NOT RUN" starttime="20260805 13:41:53.996" endtime="20260805 13:41:53.996"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${chromedriver_path}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260805 13:41:53.996" endtime="20260805 13:41:53.997"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${SiteUrl}</arg>
+<arg>${Browser}</arg>
+<arg>executable_path=${chromedriver_path}</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20260805 13:41:53.998" level="INFO">Opening browser 'headlessChrome' to base url 'https://portal.qa.fusebox.verity-solutions.com/'.</msg>
+<status status="PASS" starttime="20260805 13:41:53.997" endtime="20260805 13:41:58.861"/>
+</kw>
+<status status="PASS" starttime="20260805 13:41:53.996" endtime="20260805 13:41:58.861"/>
+</branch>
+<status status="PASS" starttime="20260805 13:41:53.996" endtime="20260805 13:41:58.861"/>
+</if>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3times</arg>
+<arg>10s</arg>
+<arg>Get Version Fusebox</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Get Version Fusebox" library="LoginKeywords">
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${version}</var>
+<arg>//*[@id="app-version"]</arg>
+<arg>value</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20260805 13:41:58.891" level="INFO">${version} = 3.0.53</msg>
+<status status="PASS" starttime="20260805 13:41:58.863" endtime="20260805 13:41:58.922"/>
+</kw>
+<kw name="Set Environment Variable" library="OperatingSystem">
+<arg>FuseboxVersion</arg>
+<arg>${version}</arg>
+<doc>Sets an environment variable to a specified value.</doc>
+<msg timestamp="20260805 13:41:58.923" level="INFO">Environment variable 'FuseboxVersion' set to value '3.0.53'.</msg>
+<status status="PASS" starttime="20260805 13:41:58.922" endtime="20260805 13:41:58.923"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${version}</var>
+<arg>${version}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20260805 13:41:58.923" level="INFO">${version} = 3.0.53</msg>
+<status status="PASS" starttime="20260805 13:41:58.923" endtime="20260805 13:41:58.923"/>
+</kw>
+<kw name="Read File Properties" library="CustomLibrary">
+<var>${json}</var>
+<arg>${EXECDIR}/results/temp_report/environment.properties</arg>
+<msg timestamp="20260805 13:41:59.046" level="INFO">${json} = ['fusebox_environment = SAMPLEAWS\n', 'fusebox_version=3.0.53\n', 'fusebox_automation = \n', 'browser_type = CHROME\n', 'browser_version = N/A\n', 'browser_headless = False\n', 'os_platform = Windows\...</msg>
+<status status="PASS" starttime="20260805 13:41:58.923" endtime="20260805 13:41:59.046"/>
+</kw>
+<kw name="Edit File Properties" library="CustomLibrary">
+<arg>${EXECDIR}/results/temp_report/environment.properties</arg>
+<arg>fusebox_version</arg>
+<arg>${version}</arg>
+<status status="PASS" starttime="20260805 13:41:59.046" endtime="20260805 13:41:59.321"/>
+</kw>
+<status status="PASS" starttime="20260805 13:41:58.862" endtime="20260805 13:41:59.322"/>
+</kw>
+<status status="PASS" starttime="20260805 13:41:58.862" endtime="20260805 13:41:59.322"/>
+</kw>
+<status status="PASS" starttime="20260805 13:41:48.835" endtime="20260805 13:41:59.322"/>
+</kw>
+<kw name="Login Okta Verify" library="LoginKeywords">
+<arg>${user_name}</arg>
+<arg>${password}</arg>
+<kw name="Set Log Level" library="BuiltIn">
+<arg>NONE</arg>
+<doc>Sets the log threshold to the specified level and returns the old level.</doc>
+<status status="PASS" starttime="20260805 13:41:59.323" endtime="20260805 13:41:59.323"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//*[@name="identifier"]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20260805 13:41:59.323" endtime="20260805 13:42:00.364"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@name="identifier"]</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" starttime="20260805 13:42:00.364" endtime="20260805 13:42:00.446"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>css:[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" starttime="20260805 13:42:00.447" endtime="20260805 13:42:00.510"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>css:[type="password"]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20260805 13:42:00.511" endtime="20260805 13:42:01.082"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css:[type="password"]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" starttime="20260805 13:42:01.082" endtime="20260805 13:42:01.182"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>css:[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" starttime="20260805 13:42:01.182" endtime="20260805 13:42:01.395"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//*[@data-se="okta_verify-totp"]/a</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20260805 13:42:01.395" endtime="20260805 13:42:01.967"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@data-se="okta_verify-totp"]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20260805 13:42:01.968" endtime="20260805 13:42:02.172"/>
+</kw>
+<kw name="Generate Otp" library="OtpLibrary">
+<var>${OTP}</var>
+<arg>${secret_key}</arg>
+<status status="PASS" starttime="20260805 13:42:02.172" endtime="20260805 13:42:02.173"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//*[@name="credentials.totp"]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" starttime="20260805 13:42:02.173" endtime="20260805 13:42:13.147"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@name="credentials.totp"]</arg>
+<arg>text=${OTP}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20260805 13:42:13.147" endtime="20260805 13:42:13.147"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>css:[type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20260805 13:42:13.147" endtime="20260805 13:42:13.148"/>
+</kw>
+<kw name="Set Log Level" library="BuiltIn">
+<arg>INFO</arg>
+<doc>Sets the log threshold to the specified level and returns the old level.</doc>
+<status status="NOT RUN" starttime="20260805 13:42:13.148" endtime="20260805 13:42:13.148"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>10 times</arg>
+<arg>3s</arg>
+<arg>Title Should Be</arg>
+<arg>Home</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20260805 13:42:13.148" endtime="20260805 13:42:13.148"/>
+</kw>
+<status status="FAIL" starttime="20260805 13:41:59.322" endtime="20260805 13:42:13.148"/>
+</kw>
+<status status="FAIL" starttime="20260805 13:41:48.835" endtime="20260805 13:42:13.148"/>
+</branch>
+<status status="FAIL" starttime="20260805 13:41:48.835" endtime="20260805 13:42:13.148"/>
+</if>
+<kw name="Get Window Size" library="SeleniumLibrary">
+<var>${windowsize}</var>
+<doc>Returns current window width and height as integers.</doc>
+<status status="NOT RUN" starttime="20260805 13:42:13.148" endtime="20260805 13:42:13.148"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${windowsize}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20260805 13:42:13.149" endtime="20260805 13:42:13.149"/>
+</kw>
+<kw name="Last Login Info" library="LoginKeywords">
+<status status="NOT RUN" starttime="20260805 13:42:13.149" endtime="20260805 13:42:13.149"/>
+</kw>
+<kw name="Check Newsletter" library="LoginKeywords">
+<status status="NOT RUN" starttime="20260805 13:42:13.149" endtime="20260805 13:42:13.149"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${Userrole}&quot; == &quot;Impersonate&quot;">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${check_btn}</var>
+<arg>Element Should Be Visible</arg>
+<arg>//a[text()="Stop Impersonating"]</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" starttime="20260805 13:42:13.149" endtime="20260805 13:42:13.149"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${check_btn}&quot; == &quot;${True}&quot;">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5times</arg>
+<arg>3s</arg>
+<arg>Click Element</arg>
+<arg>//a[text()="Stop Impersonating"]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20260805 13:42:13.152" endtime="20260805 13:42:13.152"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20260805 13:42:13.152" endtime="20260805 13:42:13.152"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>10 times</arg>
+<arg>3s</arg>
+<arg>Title Should Be</arg>
+<arg>Home</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20260805 13:42:13.187" endtime="20260805 13:42:13.187"/>
+</kw>
+<status status="NOT RUN" starttime="20260805 13:42:13.150" endtime="20260805 13:42:13.188"/>
+</branch>
+<status status="NOT RUN" starttime="20260805 13:42:13.150" endtime="20260805 13:42:13.188"/>
+</if>
+<status status="NOT RUN" starttime="20260805 13:42:13.149" endtime="20260805 13:42:13.188"/>
+</branch>
+<status status="NOT RUN" starttime="20260805 13:42:13.149" endtime="20260805 13:42:13.188"/>
+</if>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${Userrole}" == "Impersonate"</arg>
+<arg>Impersonate User</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20260805 13:42:13.188" endtime="20260805 13:42:13.188"/>
+</kw>
+<status status="FAIL" starttime="20260805 13:41:48.834" endtime="20260805 13:42:13.188"/>
+</kw>
+<kw name="Set Price To Each Item Data Test">
+<arg>${data_input}[checked_location]</arg>
+<arg>${data_input}[checked_facility]</arg>
+<arg>${data_input}[items]</arg>
+<status status="NOT RUN" starttime="20260805 13:42:13.188" endtime="20260805 13:42:13.188"/>
+</kw>
+<status status="FAIL" starttime="20260805 13:41:43.048" endtime="20260805 13:42:13.188"/>
+</kw>
+<test id="s1-t1" name="Edit Inventory In Inventory Levels" line="13">
+<doc>Verify Edit Inventory Levels Sucessfully
+INV_07</doc>
+<tag>Admin</tag>
+<tag>aws</tag>
+<tag>INV_01</tag>
+<tag>inventory</tag>
+<tag>report.label.owner:Quoc Nguyen</tag>
+<tag>smoke</tag>
+<tag>test:retry(1)</tag>
+<status status="FAIL" starttime="20260805 13:42:13.326" endtime="20260805 13:42:13.359">Parent suite setup failed:
+Element '//*[@name="credentials.totp"]' did not appear in 10 seconds.
+[RETRY] FAIL on 1. retry.</status>
+</test>
+<test id="s1-t2" name="Add New Lot And Edit Lot In Inventory Levels" line="19">
+<doc>Verify Add And Edit Lot Sucessfully
+INV_08</doc>
+<tag>Admin</tag>
+<tag>aws</tag>
+<tag>INV_01</tag>
+<tag>inventory</tag>
+<tag>report.label.owner:Quoc Nguyen</tag>
+<tag>smoke</tag>
+<tag>test:retry(1)</tag>
+<status status="FAIL" starttime="20260805 13:42:13.381" endtime="20260805 13:42:13.389">Parent suite setup failed:
+Element '//*[@name="credentials.totp"]' did not appear in 10 seconds.
+[RETRY] FAIL on 1. retry.</status>
+</test>
+<test id="s1-t3" name="Adjust Qty Item In Inventory Level And Check Transaction" line="32">
+<doc>Verify Adjust Qty Item In Inventory Level Sucessfully And Correct Transaction
+INV_09    INV_10</doc>
+<tag>Admin</tag>
+<tag>aws</tag>
+<tag>INV_01</tag>
+<tag>inventory</tag>
+<tag>report.label.owner:Quoc Nguyen</tag>
+<tag>smoke</tag>
+<tag>test:retry(1)</tag>
+<status status="FAIL" starttime="20260805 13:42:13.579" endtime="20260805 13:42:13.583">Parent suite setup failed:
+Element '//*[@name="credentials.totp"]' did not appear in 10 seconds.
+[RETRY] FAIL on 1. retry.</status>
+</test>
+<test id="s1-t4" name="Open Inventory Levels Create New Backstock And Verify Feature In New Backstock" line="41">
+<doc>Verify Feature In Backstock
+INV_06</doc>
+<tag>Admin</tag>
+<tag>aws</tag>
+<tag>INV_01</tag>
+<tag>inventory</tag>
+<tag>report.label.owner:Quoc Nguyen</tag>
+<tag>smoke</tag>
+<tag>test:retry(1)</tag>
+<status status="FAIL" starttime="20260805 13:42:13.749" endtime="20260805 13:42:13.755">Parent suite setup failed:
+Element '//*[@name="credentials.totp"]' did not appear in 10 seconds.
+[RETRY] FAIL on 1. retry.</status>
+</test>
+<kw name="Teardown Suite" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20260805 13:42:13.895" endtime="20260805 13:42:16.569"/>
+</kw>
+<status status="PASS" starttime="20260805 13:42:13.895" endtime="20260805 13:42:16.569"/>
+</kw>
+<status status="FAIL" starttime="20260805 13:41:09.893" endtime="20260805 13:42:16.569">Suite setup failed:
+Element '//*[@name="credentials.totp"]' did not appear in 10 seconds.</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="4" skip="0">Admin</stat>
+<stat pass="0" fail="4" skip="0">aws</stat>
+<stat pass="0" fail="4" skip="0">INV_01</stat>
+<stat pass="0" fail="4" skip="0">inventory</stat>
+<stat pass="0" fail="4" skip="0">report.label.owner:Quoc Nguyen</stat>
+<stat pass="0" fail="4" skip="0">smoke</stat>
+<stat pass="0" fail="4" skip="0">test:retry(1)</stat>
+</tag>
+<suite>
+<stat pass="0" fail="4" skip="0" id="s1" name="VerifyInventoryLevelsSmoke">VerifyInventoryLevelsSmoke</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20260805 13:42:13.207" level="WARN" html="true">Test '&lt;a onclick="makeElementVisible('s1-t1')" href="#s1-t1" title="Link to details"&gt;Edit Inventory In Inventory Levels&lt;/a&gt;' has been retried 1 times (max: 1).</msg>
+<msg timestamp="20260805 13:42:13.379" level="WARN" html="true">Test '&lt;a onclick="makeElementVisible('s1-t2')" href="#s1-t2" title="Link to details"&gt;Add New Lot And Edit Lot In Inventory Levels&lt;/a&gt;' has been retried 1 times (max: 1).</msg>
+<msg timestamp="20260805 13:42:13.578" level="WARN" html="true">Test '&lt;a onclick="makeElementVisible('s1-t3')" href="#s1-t3" title="Link to details"&gt;Adjust Qty Item In Inventory Level And Check Transaction&lt;/a&gt;' has been retried 1 times (max: 1).</msg>
+<msg timestamp="20260805 13:42:13.748" level="WARN" html="true">Test '&lt;a onclick="makeElementVisible('s1-t4')" href="#s1-t4" title="Link to details"&gt;Open Inventory Levels Create New Backstock And Verify Feature In New Backstock&lt;/a&gt;' has been retried 1 times (max: 1).</msg>
+</errors>
+</robot>
